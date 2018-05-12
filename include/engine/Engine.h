@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "WindowGLFW.h"
 #include "TimeManager.h"
+#include "RenderEngine.h"
 
 #include "utils/log.h"
 

@@ -1,7 +1,5 @@
 #include "engine/Engine.h"
 
-#include "engine/ShaderProgram.h"
-
 namespace ice {
 
 
