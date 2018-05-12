@@ -44,10 +44,7 @@ void Engine::run() {
 
     // The main loop
     _isRunning = true;
-
     while(_isRunning) {
-        // Main loop
-        // TODOPLACE IN ENGINE
         _timeManager.update();
 
         LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
