@@ -9,3 +9,11 @@
 
 #define ICE_FIXED_DELTATIME     0.022 // Physics run at 45 fps
 #define ICE_FIXED_FPS           60
+
+
+
+
+// Game Constances
+#define GAME_FIELD_SIZE_X      20
+#define GAME_FIELD_SIZE_Y      10
+

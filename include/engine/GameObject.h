@@ -14,6 +14,8 @@ class GameObject {
     private:
         bool _toDestroy = false;
 
+    protected:
+        glm::vec3 position
 
     public:
 

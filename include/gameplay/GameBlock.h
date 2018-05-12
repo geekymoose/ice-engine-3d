@@ -1,17 +1,17 @@
 #pragma once
 
 #include "glm"
+#include "engine/GameObject"
 
 namespace ice {
 
-class GameBlock{
+class GameBlock : GameObject {
     private:
-        glm::vec2<int> position(0,0);
-    
+        int stat;
     public :
         GameBlock();
-        GameBlock(glm::vec2 pos);
-        glm::vec2 getPos();
+        GameBlock(glm::vec3 pos);
+        int getStat();
 
 }
 
