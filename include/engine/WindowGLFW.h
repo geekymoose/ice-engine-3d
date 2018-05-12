@@ -45,6 +45,8 @@ class WindowGLFW : private Singleton<WindowGLFW> {
          */
         bool shutdown();
 
+        void update();
+
 
     // -------------------------------------------------------------------------
     // Initialization
@@ -63,6 +65,11 @@ class WindowGLFW : private Singleton<WindowGLFW> {
          * \return True if closed, otherwise, return false.
          */
         bool isClosed();
+
+        /**
+         * Clear the window content
+         */
+        void clear();
 
 
     // -------------------------------------------------------------------------

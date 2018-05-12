@@ -51,6 +51,7 @@ void Engine::run() {
     while(_isRunning) {
         _timeManager.update();
         _inputManager.update();
+        _window.clear();
 
         //LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
 
@@ -60,6 +61,8 @@ void Engine::run() {
         }
 
         // TODO: call render engine
+
+        _window.update();
 
         if(_window.isClosed()) {
             _isRunning = false;
