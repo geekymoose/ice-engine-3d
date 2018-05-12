@@ -4,6 +4,7 @@
 #include "WindowGLFW.h"
 #include "TimeManager.h"
 #include "RenderEngine.h"
+#include "InputManager.h"
 
 #include "utils/log.h"
 
@@ -30,6 +31,7 @@ class Engine {
         Game&           _game;
         TimeManager&    _timeManager;
         WindowGLFW&     _window;
+        InputManager&   _inputManager;
 
 
     // -------------------------------------------------------------------------
