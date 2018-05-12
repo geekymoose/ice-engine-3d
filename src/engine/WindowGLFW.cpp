@@ -49,6 +49,14 @@ bool WindowGLFW::shutdown() {
     return true;
 }
 
+void WindowGLFW::close() {
+    glfwSetWindowShouldClose(_window, true);
+}
+
+bool WindowGLFW::isClosed() {
+    return glfwWindowShouldClose(_window);
+}
+
 void WindowGLFW::resizeWindowCallback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }

@@ -77,10 +77,6 @@ void Game::update() {
     for(GameObject* elt : _gameObjects) {
         elt->update();
     }
-
-    if(InputManager::getInstance().isKeyDown("debug1")) {
-        LOG << "Debug key pressed\n";
-    }
 }
 
 void Game::fixedUpdate() {

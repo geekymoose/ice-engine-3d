@@ -67,6 +67,17 @@ class Game : private Singleton<Game> {
          * destroyed, free(o) is called.
          */
         void registerGameObject(GameObject* o);
+
+
+    // -------------------------------------------------------------------------
+    // Getter / Setters
+    // -------------------------------------------------------------------------
+
+    public:
+
+        bool isRunning() {
+            return _isRunning;
+        }
 };
 
 

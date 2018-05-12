@@ -60,6 +60,10 @@ void Engine::run() {
         }
 
         // TODO: call render engine
+
+        if(_window.isClosed()) {
+            _isRunning = false;
+        }
     }
 }
 
