@@ -37,9 +37,10 @@ void Game::run() {
     while(_isRunning) {
         // Main loop
         ice::TimeManager::getInstance().update();
-        LOG << "FPS: " << ice::TimeManager::getInstance().getCurrentFPS();
-        LOG << "DeltaTime: " << ice::TimeManager::getInstance().getDeltaTime();
-        LOG << "FIXED UPDATE? : " << ice::TimeManager::getInstance().hasFixedUpdate() << "\n";
+        LOG << "FPS: " << ice::TimeManager::getInstance().getCurrentFPS() << "\n";
+        if(ice::TimeManager::getInstance().hasFixedUpdate()) {
+            LOG << "FIXE UPDATE\n";
+        }
     }
 }
 

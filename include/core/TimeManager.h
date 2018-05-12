@@ -75,12 +75,11 @@ class TimeManager : private Singleton<TimeManager> {
             _currentDeltaTime = elapsed.count();
             _currentFPS = static_cast<int>(1 / _currentDeltaTime);
 
-            if(elapsedFixed.count() > _currentDeltaTime) {
+            _hasFixedUpdate = false;
+            if(elapsedFixed.count() >= _fixedDeltaTime) {
                 _lastFixedFrame = _currentStartFrame;
                 _hasFixedUpdate = true;
             }
-
-            //std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         }
 
         /**
@@ -88,7 +87,7 @@ class TimeManager : private Singleton<TimeManager> {
          * Means a physic update is required.
          */
         bool hasFixedUpdate() {
-            return false;
+            return _hasFixedUpdate;
         }
 
 
