@@ -8,8 +8,8 @@ int main(int argc, char** argv) {
     LOG << "--- Start Main ---\n";
 
     // Create the window
-    ice::Game game;
-    game.startup();
+    ice::Game::getInstance().startup();
+    ice::Game::getInstance().run();
 
     LOG << "--- Stop Main ---\n";
     return 0;
