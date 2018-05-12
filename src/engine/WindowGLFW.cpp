@@ -1,4 +1,4 @@
-#include "core/WindowGLFW.h"
+#include "engine/WindowGLFW.h"
 
 #include "utils/log.h"
 #include "utils/constants.h"

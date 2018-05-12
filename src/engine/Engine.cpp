@@ -1,6 +1,6 @@
-#include "core/Engine.h"
+#include "engine/Engine.h"
 
-#include "core/ShaderProgram.h"
+#include "engine/ShaderProgram.h"
 
 
 namespace ice {

@@ -1,7 +1,8 @@
-#include "core/Game.h"
+#include "engine/Game.h"
+
+#include "engine/Engine.h"
 
 #include "utils/log.h"
-#include "core/Engine.h"
 
 #include <cassert>
 

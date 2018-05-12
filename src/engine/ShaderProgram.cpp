@@ -1,4 +1,4 @@
-#include "core/ShaderProgram.h"
+#include "engine/ShaderProgram.h"
 
 #include "utils/log.h"
 
