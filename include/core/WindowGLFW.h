@@ -16,15 +16,14 @@ namespace ice {
  * \author  Constantin
  */
 class WindowGLFW : private Singleton<WindowGLFW> {
+    // For singleton use
     private:
-        WindowGLFW() = default; // Singleton
+        WindowGLFW() = default;
         friend Singleton<WindowGLFW>;
-
     public:
-        // For singleton use
         using Singleton<WindowGLFW>::getInstance;
 
-    public:
+    private:
         GLFWwindow* _window;
 
     // -------------------------------------------------------------------------

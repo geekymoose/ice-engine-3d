@@ -1,32 +1,25 @@
 #include "core/Game.h"
 
-#include "utils/constants.h"
 #include "utils/log.h"
+#include "core/Engine.h"
 
-#include "core/WindowGLFW.h"
-#include "core/TimeManager.h"
+#include <cassert>
 
 namespace ice {
 
 
-void Game::startup() {
-    LOG << "Startup game\n";
-    // Startup all subsystems (Order is important)
-    ice::WindowGLFW::getInstance().startup();
-    ice::TimeManager::getInstance().startup();
+Game::Game() {
+    LOG << "Create Game class\n";
+    _gameObjects.reserve(ICE_INIT_GAMEOBJECT_POOL_SIZE);
 }
 
-void Game::shutdown() {
-    LOG << "Shutdown game\n";
-    // Shutdown all subsystems (Order is important)
-    ice::WindowGLFW::getInstance().shutdown();;
-    ice::TimeManager::getInstance().shutdown();
+Game::~Game() {
+    LOG << "Destroy Game class\n";
+    for(auto elt : _gameObjects) {
+        delete elt;
+    }
 }
 
-/**
- * Main game loop
- * TODO
- */
 void Game::run() {
     LOG << "Run game (Main loop starting)\n";
     if(_isRunning) {
@@ -34,14 +27,33 @@ void Game::run() {
         return;
     }
     _isRunning = true;
-    while(_isRunning) {
-        // Main loop
-        ice::TimeManager::getInstance().update();
-        LOG << "FPS: " << ice::TimeManager::getInstance().getCurrentFPS() << "\n";
-        if(ice::TimeManager::getInstance().hasFixedUpdate()) {
-            LOG << "FIXE UPDATE\n";
-        }
+
+    // Create engine used for the game.
+    Engine engine(*this);
+
+    engine.startup();
+    engine.run();
+    engine.shutdown();
+}
+
+void Game::update() {
+    // TODO
+    // Call update of all registered game objects
+    for(auto elt : _gameObjects) {
+        elt->update();
     }
+}
+
+void Game::fixedUpdate() {
+    // Call fixedupdate of all registered game objects.
+    for(auto elt : _gameObjects) {
+        elt->fixedUpdate();
+    }
+}
+
+void Game::registerGameObject(GameObject* o) {
+    assert(o != nullptr);
+    _gameObjects.push_back(o); // Yeap, the famous push_back. But size reserved
 }
 
 
