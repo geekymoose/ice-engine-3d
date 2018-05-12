@@ -38,6 +38,16 @@ class GameObject {
         void destroy() {
             _toDestroy = true;
         }
+
+
+    // -------------------------------------------------------------------------
+    // Getters - Setters
+    // -------------------------------------------------------------------------
+
+    public:
+        bool isMarkedToDestroy() {
+            return _toDestroy;
+        }
 };
 
 

@@ -38,16 +38,33 @@ void Game::run() {
 }
 
 void Game::update() {
-    // TODO
     // Call update of all registered game objects
-    for(auto elt : _gameObjects) {
+
+    /*
+     * Dev note:
+     * Maybe we could for the foreach loop once, and if marked to destroye,
+     * remove from le vector. But I'm not sure this 'live' removing
+     * may break the iterator or something. We don't have time for now to check
+     * so this solution, though ugly, will do the job for now.
+     * (GameJam style buddies, it's 4:00Pm and we have to give the game in
+     * 24h!)
+     */
+    for(GameObject* elt : _gameObjects) {
+        assert(elt != nullptr);
+        if(elt->isMarkedToDestroy()) {
+            delete elt;
+        }
+    }
+
+    for(GameObject* elt : _gameObjects) {
         elt->update();
     }
 }
 
 void Game::fixedUpdate() {
     // Call fixedupdate of all registered game objects.
-    for(auto elt : _gameObjects) {
+    for(GameObject* elt : _gameObjects) {
+        assert(elt != nullptr);
         elt->fixedUpdate();
     }
 }

@@ -2,7 +2,6 @@
 
 #include "engine/ShaderProgram.h"
 
-
 namespace ice {
 
 
@@ -46,11 +45,16 @@ void Engine::run() {
     _isRunning = true;
     while(_isRunning) {
         _timeManager.update();
-
         LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
+
+        // TODO: call input engine
+
+        _game.update();
         if(_timeManager.hasFixedUpdate()) {
-            LOG << "FIXE UPDATE\n";
+            _game.fixedUpdate();
         }
+
+        // TODO: call render engine
     }
 }
 
