@@ -19,8 +19,8 @@ void Game::startup() {
 void Game::shutdown() {
     LOG << "Shutdown game\n";
     // Shutdown all subsystems (Order is important)
-    ice::WindowGLFW::getInstance().shutdown();;
     ice::TimeManager::getInstance().shutdown();
+    ice::WindowGLFW::getInstance().shutdown();;
 }
 
 /**

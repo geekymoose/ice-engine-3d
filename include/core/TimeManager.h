@@ -1,11 +1,9 @@
 #pragma once
 
-#include "utils/log.h"
 #include "utils/Singleton.h"
 #include "utils/constants.h"
 
 #include <chrono>
-#include <thread>
 
 namespace ice {
 
@@ -48,15 +46,8 @@ class TimeManager : private Singleton<TimeManager> {
     // -------------------------------------------------------------------------
 
     public:
-        void startup() {
-            LOG << "Startup TimeManager\n";
-            _currentStartFrame = Clock::now();
-            _lastFixedFrame = _currentStartFrame;
-        }
-
-        void shutdown() {
-            LOG << "Shutdown TimeManager\n";
-        }
+        void startup();
+        void shutdown();
 
 
     public:
@@ -65,22 +56,14 @@ class TimeManager : private Singleton<TimeManager> {
          * To call at the beginning of the main loop.
          * Update all time data relative to the beginning of the frame.
          */
-        void update() {
-            TimePoint previous = _currentStartFrame;
-            _currentStartFrame = Clock::now();
+        void update();
 
-            std::chrono::duration<float> elapsed = _currentStartFrame - previous;
-            std::chrono::duration<float> elapsedFixed = _currentStartFrame - _lastFixedFrame;
 
-            _currentDeltaTime = elapsed.count();
-            _currentFPS = static_cast<int>(1 / _currentDeltaTime);
+    // -------------------------------------------------------------------------
+    // Data getters and utils
+    // -------------------------------------------------------------------------
 
-            _hasFixedUpdate = false;
-            if(elapsedFixed.count() >= _fixedDeltaTime) {
-                _lastFixedFrame = _currentStartFrame;
-                _hasFixedUpdate = true;
-            }
-        }
+    public:
 
         /**
          * Check whether the current frame also has a fixed update to do.
@@ -89,13 +72,6 @@ class TimeManager : private Singleton<TimeManager> {
         bool hasFixedUpdate() {
             return _hasFixedUpdate;
         }
-
-
-    // -------------------------------------------------------------------------
-    // Data getters and utils
-    // -------------------------------------------------------------------------
-
-    public:
 
         float getCurrentFPS() {
             return _currentFPS;
@@ -111,3 +87,5 @@ class TimeManager : private Singleton<TimeManager> {
 };
 
 } // End namespace
+
+
