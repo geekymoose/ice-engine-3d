@@ -1,6 +1,8 @@
 #pragma once
 
+#include "core/WindowGLFW.h"
 #include "utils/log.h"
+#include "utils/constants.h"
 
 namespace ice {
 
@@ -9,23 +11,27 @@ namespace ice {
  * The main Game class.
  */
 class Game {
-    // -------------------------------------------------------------------------
-    // Data
-    // -------------------------------------------------------------------------
 
+    // -------------------------------------------------------------------------
+    // Initialization
+    // -------------------------------------------------------------------------
 
     public:
 
-        Game() {
-            LOG << "Create game\n";
+        void startup() {
+            LOG << "Startup game\n";
+            ice::WindowGLFW w;
+            w.startup();
         }
 
-        ~Game() {
+        void shutdown() {
+            LOG << "Shutdown game\n";
+            // Shutdown all subsystems
         }
-
 
         /**
          * Main game loop
+         * TODO
          */
         void run() {
         }
