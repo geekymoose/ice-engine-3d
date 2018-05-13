@@ -33,7 +33,7 @@ void GameField::initLevel(const int level){
             std::getline(map, strList[i]);
 
             for(int j = 0; j<GAME_FIELD_SIZE_X; ++j){
-                blockList[i][j]->setStatus(parse(strList[i][j]));
+                blockList[j][i]->setStatus(parse(strList[i][j]));
             }
         }
     }else{
