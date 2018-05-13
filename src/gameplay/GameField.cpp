@@ -47,6 +47,11 @@ void GameField::initLevel(const int level){
     }
 }
 
+
+int GameField::getState(int x, int y){
+    return blockList[x][y]->getStatus();
+}
+
 /*
  *  Parse a char to int
  *  return -1 for error

@@ -1,10 +1,13 @@
 #pragma once
 
-
+#include "engine/TimeManager.h"
 #include "gameplay/GameBall.h"
 #include "gameplay/GameField.h"
+#include "utils/constants.h"
+#include "utils/mathHelper.h"
+#include "utils/log.h"
 
-
+#include <cmath>
 
 /*
  * Dev note:
@@ -25,11 +28,14 @@ class PhysicEngine{
         GameBall*   _ball;
         GameField*  _field;
 
+        void fall();
+
+
     public:
         void fixedUpdate();
 
         void registerGameBall(GameBall* ball);
-        void registerGameField(GameBall* field);
+        void registerGameField(GameField* field);
 
 };
 }

@@ -21,6 +21,19 @@ class GameBall : public GameObject {
 
         void accelerate();
         void decelerate();
+
+        glm::vec3 getTarget(){
+            return target;
+        }
+        void setTarget(glm::vec3 newTarget){
+            target = newTarget;
+        }
+        glm::vec3 getPos(){
+            return position;
+        }
+        float getVelocity(){
+            return velocity;
+        }
 };
 
 

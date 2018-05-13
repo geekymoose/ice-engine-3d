@@ -27,6 +27,7 @@ class GameSetup {
                     GameData::cube_vnt_data,
                     GameData::cube_indices_data,
                     std::vector<Texture>{});
+            LOG << "Mesh created \n";
         }
 
         static void loadAllInputs() {

@@ -10,7 +10,7 @@ class mathHelper{
         static float clamp01(float toClamp){
             float backer = 0;
             if (toClamp > 1 || toClamp < 0){
-                backer = toClamp - std::round(toClamp);
+                backer = toClamp - std::floor(toClamp);
             }
 
             return backer;

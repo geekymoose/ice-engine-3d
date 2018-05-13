@@ -20,7 +20,9 @@ namespace ice {
 
     void GameBlock::fixedUpdate(){
         float dt = TimeManager::getInstance().getFixedDeltaTime();
-        position = mathHelper::lerp(position, target, BLOCK_SPEED * dt);
+        position = mathHelper::lerp(position, 
+                                    target, 
+                                    mathHelper::clamp01(BLOCK_SPEED * dt));
     }
 
     /*

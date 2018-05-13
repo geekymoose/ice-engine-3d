@@ -19,7 +19,7 @@
 #define BLOCK_SPEED             5
 #define GAME_BALL_ACCELERATION  0.2
 #define GAME_BALL_MAX_SPEED     3
-
+#define GAME_BALL_BOUNCE        1
 
 // System Path
 

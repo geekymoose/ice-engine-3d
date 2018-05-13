@@ -13,7 +13,9 @@ void GameBall::update() {
 
 void GameBall::fixedUpdate() {
     float dt = TimeManager::getInstance().getFixedDeltaTime();
-    position = mathHelper::lerp(position, target, velocity * dt);
+    position = mathHelper::lerp(position, 
+                                target,
+                                mathHelper::clamp01(velocity * dt));
 
 }
 

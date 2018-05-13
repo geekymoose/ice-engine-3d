@@ -1,5 +1,5 @@
 #include "gameplay/GameEntry.h"
-
+#include "utils/log.h"
 #include "gameplay/GameSetup.h"
 
 
@@ -17,6 +17,8 @@ namespace ice{
 void GameEntry::start(){
     GameSetup::loadAllInputs();
     GameSetup::loadGameData();
+
+    LOG << "GameEntry setuped \n";
 
    _gm = new ice::GameMaster();
    _gm->start();
