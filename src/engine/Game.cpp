@@ -48,7 +48,12 @@ void Game::run() {
     Engine engine(*this);
     engine.startup();
     registerAllKeyInputs(); // Call after engine startup
+
+    _gameEntry.start();
+
     engine.run();
+
+    _gameEntry.end();
 
     engine.shutdown();
 }

@@ -6,6 +6,8 @@
 #include "utils/constants.h"
 #include "utils/Singleton.h"
 
+#include "gameplay/GameEntry.h"
+
 #include <vector>
 
 namespace ice {
@@ -17,7 +19,7 @@ namespace ice {
  * This is only used for little 'optimization' to 'reserve' a better initial
  * size for the vector of game objects in the game.
  */
-#define ICE_INIT_GAMEOBJECT_POOL_SIZE   200
+#define ICE_INIT_GAMEOBJECT_POOL_SIZE   210
 
 
 /**
@@ -39,9 +41,10 @@ class Game : private Singleton<Game> {
         using Singleton<Game>::getInstance;
 
     private:
-        bool _isRunning = false;
         std::vector<GameObject*> _gameObjects; // All registered game objects.
-        Camera _cctv;
+        bool        _isRunning = false;
+        Camera      _cctv;
+        GameEntry   _gameEntry;
 
 
     // -------------------------------------------------------------------------
