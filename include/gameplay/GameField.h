@@ -11,7 +11,7 @@ namespace ice {
 
 class GameField {
     private: 
-        ice::GameBlock* blockList[GAME_FIELD_SIZE_X][GAME_FIELD_SIZE_Y];
+        GameBlock* blockList[GAME_FIELD_SIZE_X][GAME_FIELD_SIZE_Y];
         int currentLevel;
         void cleanLevel();
         static int parse(char const s);

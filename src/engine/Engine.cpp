@@ -67,7 +67,6 @@ void Engine::run() {
         if(_window.isClosed()) {
             _isRunning = false;
         }
-        //LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
     }
 }
 

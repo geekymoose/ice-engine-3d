@@ -18,7 +18,10 @@ GameField::GameField(){
         
             blockList[i][j] = new GameBlock(glm::vec3(i,0,j));
 
+            LOG << "X\n";
             //Game::getInstance().registerGameObject(static_cast<GameObject*>(blockList[i][j]));
+            GameObject* o = (GameObject*)blockList[i][j];
+            Game::getInstance().registerGameObject(o);
         }
     }
 }

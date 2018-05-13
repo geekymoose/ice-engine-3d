@@ -6,7 +6,11 @@
 
 namespace ice {
 
+class Mesh;
+
+
 class GameBlock : GameObject {
+    // Internal data
     private:
         /*
          * 0 is a hole 
@@ -14,9 +18,12 @@ class GameBlock : GameObject {
          * 2 is a wall
          */
         int status;
-    
-        Tag tag;
 
+        Tag tag;
+        Mesh& mesh;
+
+    // Gameplay data
+    private:
         glm::vec3 target;
 
     public :

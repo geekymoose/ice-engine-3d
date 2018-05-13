@@ -1,16 +1,24 @@
 #include "gameplay/GameBlock.h"
+
 #include "engine/TimeManager.h"
+#include "engine/MeshManager.h"
+
 #include "utils/mathHelper.h"
+#include "utils/log.h"
+
+#include <glm/gtc/matrix_transform.hpp>
 
 
 namespace ice {
 
     class GameObject;
 
-    GameBlock::GameBlock():GameObject(){
+    GameBlock::GameBlock()
+        :   GameObject(),
+            mesh(MeshManager::getInstance().getMesh("GameBlock")) {
     }
 
-    GameBlock::GameBlock(glm::vec3 pos):GameObject(){
+    GameBlock::GameBlock(glm::vec3 pos) : GameBlock(){
         position = pos;
         target = pos;
     }
@@ -28,9 +36,11 @@ namespace ice {
     void GameBlock::draw(ShaderProgram& shader) {
         shader.use();
         glm::mat4 model(1.0f);
+        model = glm::translate(model, position);
+        model = glm::scale(model, scale);
         shader.setMat4("model", model);
 
-        //mesh.draw(shader); // TODO
+        mesh.draw(shader);
     }
 
     /*

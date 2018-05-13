@@ -22,7 +22,7 @@ class Camera {
     private:
         float _fov              = 45.0f; // Default value
 
-        glm::vec3 _camPos       = glm::vec3(0.0f, 10.0f, 0.0f);
+        glm::vec3 _camPos       = glm::vec3(0.0f, 20.0f, 0.0f);
         glm::vec3 _camTarget    = glm::vec3(0.01f, 0.01f, 0.01f);
         glm::vec3 _worldUp      = glm::vec3(0.0f, 1.0f, 0.0f);
 
