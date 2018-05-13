@@ -24,9 +24,10 @@ class ShaderProgram {
         /**
          * Create a shader from its source path.
          *
-         * \param 
+         * \param vertexPath    Path to vertex shader
+         * \param fragPath      Path to fragment shader
          */
-        ShaderProgram(const GLchar* vertexPath, const GLchar* fragmentPath);
+        ShaderProgram(const GLchar* vertexPath, const GLchar* fragPath);
 
         /**
          * Use / Activate the shader.

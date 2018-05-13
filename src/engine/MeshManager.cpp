@@ -29,7 +29,7 @@ bool MeshManager::createMesh(const char* name,
     return res.second; // See unordered_map doc
 }
 
-const Mesh& MeshManager::getMesh(const char* name) const {
+Mesh& MeshManager::getMesh(const char* name) {
     return _meshes.at(name);
 }
 

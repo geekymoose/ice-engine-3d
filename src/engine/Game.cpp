@@ -2,6 +2,8 @@
 
 #include "engine/Engine.h"
 #include "engine/InputManager.h"
+#include "engine/ShaderProgram.h"
+#include "engine/MeshManager.h"
 
 #include "utils/log.h"
 
@@ -83,6 +85,7 @@ void Game::drawAll() {
 
     _cctv.updateViewData();
 
+    glm::mat4 model(1.0f);
     glm::mat4 view          = _cctv.getViewMatrix();
     glm::mat4 projection    = _cctv.getPerspectiveMatrix();
 
@@ -91,6 +94,16 @@ void Game::drawAll() {
 
         // TODO Draw element (Get Mesh, create matrix, draw)
     }
+
+    // TODO TMP Debug
+    Mesh& mm = MeshManager::getInstance().getMesh("GameBlock");
+    ShaderProgram shader("./shaders/cube.vert", "./shaders/phong_illu.frag");
+    shader.use();
+    shader.setMat4("model", model);
+    shader.setMat4("view", view);
+    shader.setMat4("projection", projection);
+
+    mm.draw(shader);
 }
 
 void Game::registerGameObject(GameObject* o) {
