@@ -18,11 +18,14 @@ void GameEntry::start(){
     GameSetup::loadGameData();
     // GameObject* o = new Blabla();
     // Game::getInstance().registerGameObject(o);
+
+   _gm = new ice::GameMaster();
+   _gm->start();
 }
 
 void GameEntry::end(){
+    _gm->end();
 }
-
 
 }
 

@@ -7,17 +7,13 @@ namespace ice{
 void GameMaster::start(){
 
     field = new ice::GameField();
-}
-
-void GameMaster::update(){
-
-    
+    field->initLevel(1);
 
 }
+
 
 void GameMaster::end(){
 
     field->~GameField();
 }
-
 }

@@ -21,7 +21,7 @@
 
 // System Path
 
-#define ICE_PATH_TO_MAP       "resource/tilemaps/level"
+#define ICE_PATH_TO_MAP       "resources/tilemaps/level"
 
 
 // TAG 
