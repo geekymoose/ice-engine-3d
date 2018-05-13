@@ -6,6 +6,8 @@
 
 namespace ice {
 
+class ShaderProgram;
+
 
 /**
  * Structure of a vertex data.
@@ -63,6 +65,11 @@ class Mesh {
          * Load all GPU data to render this mesh.
          */
         void setup(); // interan call
+
+        /**
+         * Draw Mesh using given ShaderProgram.
+         */
+        void draw(ShaderProgram& shaderProgram) const;
 };
 
 
