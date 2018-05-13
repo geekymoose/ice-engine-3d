@@ -31,14 +31,20 @@ class GameSetup {
             texture.createTexture("wall", "./resources/textures/wall.jpeg");
 
             // Load all mesh
-            std::vector<Texture> textures1 = {texture.getTexture("wall")};
+            std::vector<Texture> textures1 = {
+                texture.getTexture("wall"),
+                texture.getTexture("wall")
+            };
             mesh.createMesh(
                 "GameBlock",
                 GameData::cube_vnt_data,
                 GameData::cube_indices_data,
                 textures1);
 
-            std::vector<Texture> textures2 = {texture.getTexture("trollface")};
+            std::vector<Texture> textures2 = {
+                texture.getTexture("trollface"),
+                texture.getTexture("trollface")
+            };
             mesh.createMesh(
                 "GameBall",
                 GameData::cube_vnt_data,
