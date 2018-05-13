@@ -1,7 +1,6 @@
 #pragma once
 
-#include "ShaderProgram.h"
-
+#include <glm/glm.hpp>
 #include <vector>
 #include <string>
 
@@ -37,7 +36,9 @@ struct Texture {
  */
 class Mesh {
     private:
-        unsigned int VAO, VBO, EBO;
+        unsigned int _VAO;
+        unsigned int _VBO;
+        unsigned int _EBO;
 
 
     public:
@@ -56,7 +57,12 @@ class Mesh {
              std::vector<unsigned int> indices,
              std::vector<Texture> textures);
 
-        void setup();
+    private:
+
+        /**
+         * Load all GPU data to render this mesh.
+         */
+        void setup(); // interan call
 };
 
 
