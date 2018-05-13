@@ -49,6 +49,7 @@ namespace ice {
      */
 
     void GameBlock::setStatus(int status){
+
         switch (status){
             case 0:
                 target.y = -5;

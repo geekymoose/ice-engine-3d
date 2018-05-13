@@ -43,6 +43,7 @@ void GameField::initLevel(const int level){
 
             for(int j = 0; j<GAME_FIELD_SIZE_X; ++j){
                 blockList[i][j]->setStatus(parse(strList[i][j]));
+                //LOG << "blockList[" <<i<<"]["<<j<<"] : " << blockList[i][j]->getStatus() << "\n";
             }
         }
     }else{
