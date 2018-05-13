@@ -20,10 +20,10 @@ void PhysicEngine::fixedUpdate(){
     glm::vec3 ballPos = _ball->getPos();
 
     glm::vec2 currentPos(std::floor(ballPos.x),std::floor(ballPos.z));
+   
+   if(currentPos.x > 0 && currentPos.x < 20 && currentPos.y > 0 && currentPos.y < 20){
     _field->getGB(currentPos.x  , currentPos.y)->isWalk(true);
-    
-
-    
+     
     GameBlock* blockAround[4];
    
     blockAround[0] = _field->getGB(currentPos.x  , currentPos.y+1);
@@ -34,7 +34,7 @@ void PhysicEngine::fixedUpdate(){
     for (int i =0; i<4;++i){
         blockAround[i]->isWalk(false);
     }
-
+   }
 
 /*
 
