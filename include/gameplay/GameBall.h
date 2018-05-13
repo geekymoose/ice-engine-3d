@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "engine/GameObject.h"
 
 namespace ice {
@@ -10,11 +11,16 @@ namespace ice {
  * Soo much emotions.
  */
 class GameBall : public GameObject {
+    private:
+        float velocity;
+        glm::vec3 target;
 
     public:
-
         void update() override;
         void fixedUpdate() override;
+
+        void accelerate();
+        void decelerate();
 };
 
 
