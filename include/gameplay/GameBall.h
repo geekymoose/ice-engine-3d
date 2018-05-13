@@ -1,5 +1,7 @@
 #pragma once
 
+#include "engine/GameObject.h"
+
 namespace ice {
 
 
@@ -11,13 +13,8 @@ class GameBall : public GameObject {
 
     public:
 
-        void update() override {
-            // TODO
-        }
-
-        void fixeUpdate() override {
-            // TODO
-        }
+        void update() override;
+        void fixedUpdate() override;
 };
 
 

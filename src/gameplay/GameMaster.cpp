@@ -1,19 +1,24 @@
 #include "gameplay/GameMaster.h"
 #include "gameplay/GameField.h"
+#include "engine/Game.h"
 
 
 namespace ice{
 
 void GameMaster::start(){
 
-    field = new ice::GameField();
+    field = new GameField();
     field->initLevel(1);
 
+    gameBall = new GameBall();
+
+    Game::getInstance().registerGameObject(gameBall);
 }
 
 
 void GameMaster::end(){
-
-    field->~GameField();
+    delete field;
 }
+
+
 }
