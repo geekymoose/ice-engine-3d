@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Camera.h"
 
 #include "utils/constants.h"
 #include "utils/Singleton.h"
@@ -40,6 +41,7 @@ class Game : private Singleton<Game> {
     private:
         bool _isRunning = false;
         std::vector<GameObject*> _gameObjects; // All registered game objects.
+        Camera _cctv;
 
 
     // -------------------------------------------------------------------------

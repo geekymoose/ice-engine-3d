@@ -46,12 +46,9 @@ void Game::run() {
     _isRunning = true;
 
     Engine engine(*this);
-
     engine.startup();
-    registerAllKeyInputs();
-
+    registerAllKeyInputs(); // Call after engine startup
     engine.run();
-
     engine.shutdown();
 }
 
@@ -88,9 +85,12 @@ void Game::fixedUpdate() {
 }
 
 void Game::drawAll() {
+    _cctv.updateViewData();
+    glm::mat4 perpectiveM = _cctv.getViewMatrix();
+
     for(GameObject* elt : _gameObjects) {
-        LOG << "X";
         assert(elt != nullptr); // We love asserts (Its actually useless here)
+
         // TODO Draw element (Get Mesh, create matrix, draw)
     }
 }
