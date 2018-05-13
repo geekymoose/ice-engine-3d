@@ -61,6 +61,7 @@ class Mesh {
          */
         void setup(); // interan call
 
+    public: // TODO temporary public
         /**
          * Draw Mesh using given ShaderProgram.
          */

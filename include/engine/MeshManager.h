@@ -59,7 +59,7 @@ class MeshManager : Singleton<MeshManager> {
          *
          * \param name The Mesh name as registered in the MeshManager.
          */
-        const Mesh& getMesh(const char* name) const;
+        Mesh& getMesh(const char* name);
 };
 
 

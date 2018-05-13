@@ -36,6 +36,8 @@ bool WindowGLFW::startup() {
     }
     LOG << "GLAD successfully started\n";
 
+    glEnable(GL_DEPTH_TEST);
+
     return true;
 }
 

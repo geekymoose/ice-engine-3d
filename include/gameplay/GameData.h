@@ -1,6 +1,7 @@
 #pragma once
 
 #include "engine/Mesh.h" // For Vertex structure info
+#include "engine/InputManager.h"
 
 #include <vector>
 

@@ -2,6 +2,8 @@
 
 #include "engine/Engine.h"
 #include "engine/InputManager.h"
+#include "engine/ShaderProgram.h"
+#include "engine/MeshManager.h"
 
 #include "utils/log.h"
 
@@ -9,20 +11,6 @@
 
 namespace ice {
 
-
-/*
- * Dev note:
- * This is relative to game play. I placed it here for now for simplicity.
- * This may be exported outside.
- *
- * InputManager must have been started up!!! (Undefined behavior otherwise).
- */
-static void registerAllKeyInputs() {
-    LOG << "Register all keys\n";
-
-    InputManager& _input = InputManager::getInstance();
-    _input.registerInput("debug1", GLFW_KEY_ESCAPE);
-}
 
 Game::Game() {
     LOG << "Create Game class\n";
@@ -46,15 +34,13 @@ void Game::run() {
     _isRunning = true;
 
     Engine engine(*this);
-    engine.startup();
-    registerAllKeyInputs(); // Call after engine startup
 
+    engine.startup();
     _gameEntry.start();
 
     engine.run();
 
     _gameEntry.end();
-
     engine.shutdown();
 }
 
@@ -95,14 +81,29 @@ void Game::fixedUpdate() {
 }
 
 void Game::drawAll() {
+    // TODO: Switch in Render Engine.
+
     _cctv.updateViewData();
-    glm::mat4 perpectiveM = _cctv.getViewMatrix();
+
+    glm::mat4 model(1.0f);
+    glm::mat4 view          = _cctv.getViewMatrix();
+    glm::mat4 projection    = _cctv.getPerspectiveMatrix();
 
     for(GameObject* elt : _gameObjects) {
         assert(elt != nullptr); // We love asserts (Its actually useless here)
 
         // TODO Draw element (Get Mesh, create matrix, draw)
     }
+
+    // TODO TMP Debug
+    Mesh& mm = MeshManager::getInstance().getMesh("GameBlock");
+    ShaderProgram shader("./shaders/cube.vert", "./shaders/phong_illu.frag");
+    shader.use();
+    shader.setMat4("model", model);
+    shader.setMat4("view", view);
+    shader.setMat4("projection", projection);
+
+    mm.draw(shader);
 }
 
 void Game::registerGameObject(GameObject* o) {
