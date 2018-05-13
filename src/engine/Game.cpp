@@ -10,20 +10,6 @@
 namespace ice {
 
 
-/*
- * Dev note:
- * This is relative to game play. I placed it here for now for simplicity.
- * This may be exported outside.
- *
- * InputManager must have been started up!!! (Undefined behavior otherwise).
- */
-static void registerAllKeyInputs() {
-    LOG << "Register all keys\n";
-
-    InputManager& _input = InputManager::getInstance();
-    _input.registerInput("debug1", GLFW_KEY_ESCAPE);
-}
-
 Game::Game() {
     LOG << "Create Game class\n";
     _gameObjects.reserve(ICE_INIT_GAMEOBJECT_POOL_SIZE);
@@ -46,15 +32,13 @@ void Game::run() {
     _isRunning = true;
 
     Engine engine(*this);
-    engine.startup();
-    registerAllKeyInputs(); // Call after engine startup
 
+    engine.startup();
     _gameEntry.start();
 
     engine.run();
 
     _gameEntry.end();
-
     engine.shutdown();
 }
 

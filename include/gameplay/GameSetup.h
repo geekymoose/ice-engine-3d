@@ -6,6 +6,7 @@
 #include "engine/MeshManager.h"
 
 #include <vector>
+#include <GLFW/glfw3.h> // Kind of ugly, but to register gameplay keys
 
 namespace ice {
 
@@ -26,6 +27,13 @@ class GameSetup {
                     GameData::cube_vnt_data,
                     GameData::cube_indices_data,
                     std::vector<Texture>{});
+        }
+
+        static void loadAllInputs() {
+            LOG << "Register all gameplay inputs for the game\n";
+
+            InputManager& _input = InputManager::getInstance();
+            _input.registerInput("debug1", GLFW_KEY_ESCAPE);
         }
 };
 
