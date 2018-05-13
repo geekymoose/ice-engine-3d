@@ -14,12 +14,32 @@ void PhysicEngine::registerGameField(GameField* field){
 
 
 void PhysicEngine::fixedUpdate(){
-/*
     float dt = TimeManager::getInstance().getFixedDeltaTime();
+
+
+    glm::vec3 ballPos = _ball->getPos();
+
+    glm::vec2 currentPos(std::floor(ballPos.x),std::floor(ballPos.z));
+    _field->getGB(currentPos.x  , currentPos.y)->isWalk(true);
+    
+
+    
+    GameBlock* blockAround[4];
+   
+    blockAround[0] = _field->getGB(currentPos.x  , currentPos.y+1);
+    blockAround[1] = _field->getGB(currentPos.x-1, currentPos.y);
+    blockAround[2] = _field->getGB(currentPos.x+1, currentPos.y);
+    blockAround[3] = _field->getGB(currentPos.x-1, currentPos.y-1);
+
+    for (int i =0; i<4;++i){
+        blockAround[i]->isWalk(false);
+    }
+
+
+/*
 
     //LOG << "coucou";
 
-    glm::vec3 ballPos = _ball->getPos();
     glm::vec3 ballTarget = _ball->getTarget();
     float ballVelocity = _ball->getVelocity();
 

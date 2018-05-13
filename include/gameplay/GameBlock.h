@@ -17,7 +17,7 @@ class GameBlock : GameObject {
          * 1 is normal
          * 2 is a wall
          */
-        int status;
+        int stat;
 
         Tag tag;
         Mesh& mesh;
@@ -30,12 +30,14 @@ class GameBlock : GameObject {
         GameBlock();
         GameBlock(glm::vec3 pos);
         int getStatus(){
-            return status;
+            return stat;
         };
         void setStatus(int status);
         void fixedUpdate() override;
         void update() override;
         void draw(ShaderProgram& shader) override;
+
+        void isWalk(bool isWalked); 
 
         glm::vec3 getTarget(){
             return target;

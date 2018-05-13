@@ -28,10 +28,21 @@ namespace ice {
     void GameBlock::update(){
     }
 
+    void GameBlock::isWalk(bool isWalk){
+        if(isWalk && stat != 2){
+            setStatus(0);
+            target.y = PLAYER_WEIGHT;
+        } else if (stat == 0) {
+            target.y = 0;
+            setStatus(1);
+            
+        } 
+        
+    }
+
     void GameBlock::fixedUpdate(){
 
         float dt = TimeManager::getInstance().getFixedDeltaTime();
-        
         
 
         position = mathHelper::lerp(position, 
@@ -70,15 +81,15 @@ namespace ice {
 
         switch (status){
             case 0:
-                this->status = 0;
-                target.y = -5;
+                this->stat = 0;
+                target.y = PLAYER_WEIGHT;
                 break;
             case 1:
-                this->status = 1;            
+                this->stat = 1;            
                 target.y = 0;
                 break;
             case 2:
-                this->status = 2;            
+                this->stat = 2;            
                 target.y = 1;
                 break;
         }
