@@ -23,6 +23,10 @@ GameBall::GameBall() : mesh(MeshManager::getInstance().getMesh("GameBall")){
     position.z = 1;
 
     target = position;
+    
+    scale.x = 0.2;
+    scale.y = 0.2;
+    scale.z = 0.2;
 }
 
 void GameBall::update() {
@@ -53,6 +57,7 @@ void GameBall::update() {
     PointLight& l = GameData::pLight;
     l.position.x = position.x;
     l.position.z = position.z;
+    l.position.y = position.y + 2;
 }
 
 void GameBall::fixedUpdate() {

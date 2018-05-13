@@ -4,8 +4,6 @@
 namespace ice {
 
 
-
-
 // -----------------------------------------------------------------------------
 // Static data
 // -----------------------------------------------------------------------------
@@ -13,11 +11,12 @@ namespace ice {
 PointLight GameData::pLight = {
     glm::vec3(0.0f, 0.0f, 0.0f),
 
-    glm::vec3(0.05f, 0.05f, 0.05f),
-    glm::vec3(0.8f, 0.8f, 0.8f),
-    glm::vec3(1.0f, 1.0f, 1.0f),
+    glm::vec3(0.02f, 0.02f, 0.02f),
+    glm::vec3(0.0f, 0.4f, 0.4f),
+    glm::vec3(0.0f, 1.5f, 1.0f),
 
-    1.0f, 0.09f, 0.032f // Dist 50
+    //1.0f, 0.045f, 0.075f
+    1.0f, 0.0f, 0.075f
 };
 
 const std::vector<Vertex> GameData::cube_vnt_data = {
