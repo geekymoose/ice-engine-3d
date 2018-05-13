@@ -11,6 +11,8 @@ class mathHelper{
             float backer = 0;
             if (toClamp > 1 || toClamp < 0){
                 backer = toClamp - std::floor(toClamp);
+            } else {
+                backer = toClamp;
             }
 
             return backer;
@@ -20,8 +22,8 @@ class mathHelper{
             glm::vec3 backer(0,0,0);
 
             backer.x = (1-alpha)*origin.x + target.x*alpha;
-            backer.y = (1-alpha)*origin.y + target.x*alpha;
-            backer.z = (1-alpha)*origin.z + target.x*alpha;
+            backer.y = (1-alpha)*origin.y + target.y*alpha;
+            backer.z = (1-alpha)*origin.z + target.z*alpha;
 
             return backer;
         };

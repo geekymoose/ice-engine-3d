@@ -31,7 +31,6 @@ void GameField::initLevel(const int level){
     if(map.is_open()){
         for(int i = 0; i < GAME_FIELD_SIZE_Y; ++i){
             std::getline(map, strList[i]);
-            //LOG << strList[i] + "\n";
 
             for(int j = 0; j<GAME_FIELD_SIZE_X; ++j){
                 blockList[i][j]->setStatus(parse(strList[i][j]));
@@ -41,6 +40,7 @@ void GameField::initLevel(const int level){
         LOG << "Map hasn't been open \n";
     }
 }
+
 
 
 int GameField::getState(int x, int y){

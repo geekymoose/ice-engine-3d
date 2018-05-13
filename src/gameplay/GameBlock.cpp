@@ -27,7 +27,11 @@ namespace ice {
     }
 
     void GameBlock::fixedUpdate(){
+
         float dt = TimeManager::getInstance().getFixedDeltaTime();
+        
+        
+
         position = mathHelper::lerp(position, 
                                     target, 
                                     mathHelper::clamp01(BLOCK_SPEED * dt));
@@ -49,14 +53,18 @@ namespace ice {
      */
 
     void GameBlock::setStatus(int status){
+
         switch (status){
             case 0:
+                this->status = 0;
                 target.y = -5;
                 break;
             case 1:
+                this->status = 1;            
                 target.y = 0;
                 break;
             case 2:
+                this->status = 2;            
                 target.y = 1;
                 break;
         }

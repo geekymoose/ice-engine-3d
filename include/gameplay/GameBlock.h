@@ -37,6 +37,9 @@ class GameBlock : GameObject {
         void update() override;
         void draw(ShaderProgram& shader) override;
 
+        glm::vec3 getTarget(){
+            return target;
+        }
         Tag getTag(){
             return tag;
         }

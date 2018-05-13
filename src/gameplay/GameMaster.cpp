@@ -10,6 +10,7 @@ void GameMaster::start(){
     field = new GameField();
     field->initLevel(1);
 
+
     gameBall = new GameBall();
 
     Game::getInstance().registerGameObject(gameBall);
