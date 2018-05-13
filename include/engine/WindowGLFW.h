@@ -64,7 +64,7 @@ class WindowGLFW : private Singleton<WindowGLFW> {
          *
          * \return True if closed, otherwise, return false.
          */
-        bool isClosed();
+        bool isClosed() const;
 
         /**
          * Clear the window content

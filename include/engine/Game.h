@@ -75,7 +75,7 @@ class Game : private Singleton<Game> {
 
     public:
 
-        bool isRunning() {
+        bool isRunning() const {
             return _isRunning;
         }
 };

@@ -7,7 +7,8 @@ Engine::Engine(Game& game)
     : _game(game),
       _window(WindowGLFW::getInstance()),
       _timeManager(TimeManager::getInstance()),
-      _inputManager(InputManager::getInstance())
+      _inputManager(InputManager::getInstance()),
+      _meshManager(MeshManager::getInstance())
     {
 }
 
@@ -20,6 +21,7 @@ void Engine::startup() {
 
         _timeManager.startup();
         _inputManager.startup();
+        _meshManager.startup();
     }
 }
 
@@ -29,6 +31,7 @@ void Engine::shutdown() {
         LOG << "Shutdown ice Engine\n";
         _timeManager.shutdown();
         _inputManager.shutdown();
+        _meshManager.shutdown();
 
         _window.shutdown(); // LAST ONE
         _isInit = false;

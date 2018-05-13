@@ -58,11 +58,11 @@ void WindowGLFW::close() {
 }
 
 void WindowGLFW::clear() {
-    glClearColor(0.0f, 5.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-bool WindowGLFW::isClosed() {
+bool WindowGLFW::isClosed() const {
     return glfwWindowShouldClose(_window);
 }
 

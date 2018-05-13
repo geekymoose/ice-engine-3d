@@ -69,19 +69,19 @@ class TimeManager : private Singleton<TimeManager> {
          * Check whether the current frame also has a fixed update to do.
          * Means a physic update is required.
          */
-        bool hasFixedUpdate() {
+        bool hasFixedUpdate() const {
             return _hasFixedUpdate;
         }
 
-        float getCurrentFPS() {
+        float getCurrentFPS() const {
             return _currentFPS;
         }
 
-        float getDeltaTime() {
+        float getDeltaTime() const {
             return _currentDeltaTime;
         }
 
-        float getFixedDeltaTime() {
+        float getFixedDeltaTime() const {
             return _fixedDeltaTime;
         }
 };
