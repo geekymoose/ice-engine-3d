@@ -27,14 +27,14 @@ class GameSetup {
             MeshManager& mesh       = MeshManager::getInstance();
 
             // Load all textures
-            texture.createTexture("trollface", "./resources/textures/trollface.png");
-            texture.createTexture("wall", "./resources/textures/wall.jpeg");
-            texture.createTexture("rune", "./resources/textures/rune.jpg");
+            texture.createTexture("trollface",  "./resources/textures/trollface.png");
+            texture.createTexture("rune-diffuse",       "./resources/textures/rune-diffuse.png");
+            texture.createTexture("rune-specular",       "./resources/textures/rune-specular.png");
 
             // Load all mesh
             std::vector<Texture> textures1 = {
-                texture.getTexture("rune"),
-                texture.getTexture("rune")
+                texture.getTexture("rune-diffuse"),
+                texture.getTexture("rune-specular")
             };
             mesh.createMesh(
                 "GameBlock",
