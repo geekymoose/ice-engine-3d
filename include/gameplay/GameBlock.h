@@ -26,7 +26,7 @@ class GameBlock : GameObject {
     private:
         glm::vec3 target;
 
-    public :
+    public:
         GameBlock();
         GameBlock(glm::vec3 pos);
         int getStatus(){

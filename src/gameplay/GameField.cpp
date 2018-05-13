@@ -43,8 +43,8 @@ void GameField::initLevel(const int level){
 
 
 
-int GameField::getState(int x, int y){
-    return blockList[x][y]->getStatus();
+GameBlock* GameField::getGB(int x, int y){
+    return blockList[x][y];
 }
 
 /*

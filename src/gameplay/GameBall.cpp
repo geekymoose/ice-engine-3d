@@ -15,6 +15,12 @@ namespace ice {
 
 GameBall::GameBall() : mesh(MeshManager::getInstance().getMesh("GameBall")){
     LOG << " Player (GameBall) created\n";
+
+    position.x = 1;
+    position.y = 1;
+    position.z = 1;
+
+    target = position;
 }
 
 void GameBall::update() {
@@ -22,40 +28,24 @@ void GameBall::update() {
 
     // A little ugly animation
     float dt = TimeManager::getInstance().getDeltaTime();
-    float speed = 0.5;
-    float newScale = speed * dt;
-    if(growing) {
-        scale.x += newScale;
-        scale.y += newScale;
-        scale.z += newScale;
-
-        if(scale.x >= 1.1) {
-            growing = false;
-        }
-    }
-    else {
-        scale.x -= newScale;
-        scale.y -= newScale;
-        scale.z -= newScale;
-
-        if(scale.x <= 1) {
-            growing = true;
-        }
-    }
 
     // Move player
     InputManager& input = InputManager::getInstance();
     if(input.isKeyDown("right")) {
-        position.x += moveSpeed * dt;
+        accelerate();
+        target.x += dt * GAME_SOAP_GROUND;
     }
     if(input.isKeyDown("left")) {
-        position.x -= moveSpeed * dt;
+        accelerate();
+        target.x -= dt * GAME_SOAP_GROUND;
     }
     if(input.isKeyDown("up")) {
-        position.z -= moveSpeed * dt;
+        accelerate();
+        target.z -= dt * GAME_SOAP_GROUND;
     }
     if(input.isKeyDown("down")) {
-        position.z += moveSpeed * dt;
+        accelerate();
+        target.z += dt * GAME_SOAP_GROUND;        
     }
 }
 

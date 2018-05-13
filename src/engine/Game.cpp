@@ -74,6 +74,7 @@ void Game::fixedUpdate() {
         assert(elt != nullptr);
         elt->fixedUpdate();
     }
+    _gameEntry.fixedUpdate();
 }
 
 void Game::drawAll() {
