@@ -29,11 +29,12 @@ class GameSetup {
             // Load all textures
             texture.createTexture("trollface", "./resources/textures/trollface.png");
             texture.createTexture("wall", "./resources/textures/wall.jpeg");
+            texture.createTexture("rune", "./resources/textures/rune.jpg");
 
             // Load all mesh
             std::vector<Texture> textures1 = {
-                texture.getTexture("wall"),
-                texture.getTexture("wall")
+                texture.getTexture("rune"),
+                texture.getTexture("rune")
             };
             mesh.createMesh(
                 "GameBlock",
