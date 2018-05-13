@@ -51,7 +51,6 @@ void Mesh::setup() {
 void Mesh::draw(ShaderProgram& shaderProgram) {
     shaderProgram.use();
 
-    // TODO Add texture management
     // Hard coded: we know there is always 2 textures (diffuse, specular)
     Texture& t1 = _textures.at(0);
     Texture& t2 = _textures.at(1);

@@ -1,5 +1,7 @@
 #include "gameplay/GameBlock.h"
 
+#include "gameplay/GameData.h"
+
 #include "engine/TimeManager.h"
 #include "engine/MeshManager.h"
 
@@ -43,6 +45,8 @@ namespace ice {
         model = glm::translate(model, position);
         model = glm::scale(model, scale);
         shader.setMat4("model", model);
+
+        //PointLight& l =  pLight;
 
         mesh.draw(shader);
     }

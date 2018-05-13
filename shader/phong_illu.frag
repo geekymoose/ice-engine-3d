@@ -7,8 +7,8 @@ in vec2 vTexCoords;
 out vec4 fColor;
 
 
-uniform sampler2D texture1;
-uniform sampler2D texture2;
+uniform sampler2D diffuse;
+uniform sampler2D specular;
 
 
 // -----------------------------------------------------------------------------
@@ -19,6 +19,6 @@ void main() {
     //fColor = vec4(0.2, 0.9, 0.4, 1.0);
 
     //TODO TMP
-    fColor = texture(texture1, vTexCoords);
+    fColor = mix(texture(diffuse, vTexCoords), texture(specular, vTexCoords), 0.2);
 }
 
