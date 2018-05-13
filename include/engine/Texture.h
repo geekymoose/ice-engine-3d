@@ -8,8 +8,9 @@ namespace ice {
 /**
  * Structure of a texture.
  */
-struct Texture {
-    unsigned int _id;
+class Texture {
+    public:
+        unsigned int _id;
 };
 
 

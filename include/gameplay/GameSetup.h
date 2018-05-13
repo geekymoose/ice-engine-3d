@@ -4,6 +4,7 @@
 
 #include "utils/log.h"
 #include "engine/MeshManager.h"
+#include "engine/TextureManager.h"
 
 #include <vector>
 #include <GLFW/glfw3.h> // Kind of ugly, but to register gameplay keys
@@ -21,19 +22,28 @@ class GameSetup {
             LOG << "DATA: load game data (Mesh...)\n";
             // Little bit hard coded (Little bit)
 
-            // Add block Mesh data
-            MeshManager::getInstance().createMesh(
-                    "GameBlock",
-                    GameData::cube_vnt_data,
-                    GameData::cube_indices_data,
-                    std::vector<Texture>{});
+            // tmp variables
+            TextureManager& texture = TextureManager::getInstance();
+            MeshManager& mesh       = MeshManager::getInstance();
 
-            MeshManager::getInstance().createMesh(
-                    "GameBall",
-                    GameData::cube_vnt_data,
-                    GameData::cube_indices_data,
-                    std::vector<Texture>{});
+            // Load all textures
+            texture.createTexture("trollface", "./resources/textures/trollface.png");
+            texture.createTexture("wall", "./resources/textures/wall.jpeg");
 
+            // Load all mesh
+            std::vector<Texture> textures1 = {texture.getTexture("wall")};
+            mesh.createMesh(
+                "GameBlock",
+                GameData::cube_vnt_data,
+                GameData::cube_indices_data,
+                textures1);
+
+            std::vector<Texture> textures2 = {texture.getTexture("trollface")};
+            mesh.createMesh(
+                "GameBall",
+                GameData::cube_vnt_data,
+                GameData::cube_indices_data,
+                textures2);
         }
 
         static void loadAllInputs() {
