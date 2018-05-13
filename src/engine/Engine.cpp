@@ -6,25 +6,32 @@ namespace ice {
 Engine::Engine(Game& game)
     : _game(game),
       _window(WindowGLFW::getInstance()),
-      _timeManager(TimeManager::getInstance()) {
+      _timeManager(TimeManager::getInstance()),
+      _inputManager(InputManager::getInstance())
+    {
 }
 
 void Engine::startup() {
+    // Startup all subsystems (Order is important)
     if(!_isInit) {
         _isInit = true;
         LOG << "Startup ice Engine\n";
-        // Startup all subsystems (Order is important)
+        _window.startup(); // FIRST ONE
+
         _timeManager.startup();
-        _window.startup();
+        _inputManager.startup();
     }
 }
 
 void Engine::shutdown() {
+    // Shutdown all subsystems (Order is important)
     if(_isInit) {
         LOG << "Shutdown ice Engine\n";
-        // Shutdown all subsystems (Order is important)
         _timeManager.shutdown();
-        _window.shutdown();
+        _inputManager.shutdown();
+
+        _window.shutdown(); // LAST ONE
+        _isInit = false;
     }
 }
 
@@ -43,9 +50,9 @@ void Engine::run() {
     _isRunning = true;
     while(_isRunning) {
         _timeManager.update();
-        LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
+        _inputManager.update();
 
-        // TODO: call input engine
+        //LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
 
         _game.update();
         if(_timeManager.hasFixedUpdate()) {
@@ -58,3 +65,5 @@ void Engine::run() {
 
 
 } // End namespace
+
+

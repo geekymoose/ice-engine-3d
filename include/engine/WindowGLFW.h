@@ -23,7 +23,7 @@ class WindowGLFW : private Singleton<WindowGLFW> {
     public:
         using Singleton<WindowGLFW>::getInstance;
 
-    private:
+    public: // It's not the best way, but other (ex:InputManager) access window)
         GLFWwindow* _window;
 
     // -------------------------------------------------------------------------

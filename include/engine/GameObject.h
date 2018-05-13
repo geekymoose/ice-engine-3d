@@ -1,5 +1,7 @@
 #pragma once
 
+#include <glm/glm.hpp>
+
 namespace ice {
 
 
@@ -15,7 +17,7 @@ class GameObject {
         bool _toDestroy = false;
 
     protected:
-        glm::vec3 position
+        glm::vec3 position;
 
     public:
 
@@ -50,6 +52,7 @@ class GameObject {
         bool isMarkedToDestroy() {
             return _toDestroy;
         }
+
 };
 
 

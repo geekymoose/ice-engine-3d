@@ -1,6 +1,7 @@
 #include "engine/Game.h"
 
 #include "engine/Engine.h"
+#include "engine/InputManager.h"
 
 #include "utils/log.h"
 
@@ -8,6 +9,20 @@
 
 namespace ice {
 
+
+/*
+ * Dev note:
+ * This is relative to game play. I placed it here for now for simplicity.
+ * This may be exported outside.
+ *
+ * InputManager must have been started up!!! (Undefined behavior otherwise).
+ */
+static void registerAllKeyInputs() {
+    LOG << "Register all keys\n";
+
+    InputManager& _input = InputManager::getInstance();
+    _input.registerInput("debug1", GLFW_KEY_ESCAPE);
+}
 
 Game::Game() {
     LOG << "Create Game class\n";
@@ -25,15 +40,18 @@ void Game::run() {
     LOG << "Run game (Main loop starting)\n";
     if(_isRunning) {
         // Can't run more than once.
+        LOG << "Game is already running!\n";
         return;
     }
     _isRunning = true;
 
-    // Create engine used for the game.
     Engine engine(*this);
 
     engine.startup();
+    registerAllKeyInputs();
+
     engine.run();
+
     engine.shutdown();
 }
 
@@ -58,6 +76,10 @@ void Game::update() {
 
     for(GameObject* elt : _gameObjects) {
         elt->update();
+    }
+
+    if(InputManager::getInstance().isKeyDown("debug1")) {
+        LOG << "Debug key pressed\n";
     }
 }
 

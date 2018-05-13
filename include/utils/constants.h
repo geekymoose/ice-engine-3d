@@ -16,4 +16,16 @@
 // Game Constances
 #define GAME_FIELD_SIZE_X      20
 #define GAME_FIELD_SIZE_Y      10
+#define BLOCK_SPEED             5
 
+
+// System Path
+
+#define ICE_PATH_TO_MAP       "resource/tilemaps/level"
+
+
+// TAG 
+namespace ice{
+    enum class Tag{ Block, Ball};
+
+}
