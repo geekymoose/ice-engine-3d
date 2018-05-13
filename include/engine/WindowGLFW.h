@@ -26,6 +26,7 @@ class WindowGLFW : private Singleton<WindowGLFW> {
     public: // It's not the best way, but other (ex:InputManager) access window)
         GLFWwindow* _window;
 
+
     // -------------------------------------------------------------------------
     // Initialization
     // -------------------------------------------------------------------------
@@ -43,6 +44,32 @@ class WindowGLFW : private Singleton<WindowGLFW> {
          * Last to call (Since also stop GLFW).
          */
         bool shutdown();
+
+        void update();
+
+
+    // -------------------------------------------------------------------------
+    // Initialization
+    // -------------------------------------------------------------------------
+
+    public:
+
+        /**
+         * Close the window.
+         */
+        void close();
+
+        /**
+         * Check whether window is closed.
+         *
+         * \return True if closed, otherwise, return false.
+         */
+        bool isClosed() const;
+
+        /**
+         * Clear the window content
+         */
+        void clear();
 
 
     // -------------------------------------------------------------------------

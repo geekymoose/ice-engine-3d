@@ -49,7 +49,7 @@ class GameObject {
     // -------------------------------------------------------------------------
 
     public:
-        bool isMarkedToDestroy() {
+        bool isMarkedToDestroy() const {
             return _toDestroy;
         }
 

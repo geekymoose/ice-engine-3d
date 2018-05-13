@@ -49,6 +49,23 @@ bool WindowGLFW::shutdown() {
     return true;
 }
 
+void WindowGLFW::update() {
+    glfwSwapBuffers(_window);
+}
+
+void WindowGLFW::close() {
+    glfwSetWindowShouldClose(_window, true);
+}
+
+void WindowGLFW::clear() {
+    glClearColor(0.1f, 0.1f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+bool WindowGLFW::isClosed() const {
+    return glfwWindowShouldClose(_window);
+}
+
 void WindowGLFW::resizeWindowCallback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
