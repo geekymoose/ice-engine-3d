@@ -12,11 +12,10 @@ PointLight GameData::pLight = {
     glm::vec3(0.0f, 0.0f, 0.0f),
 
     glm::vec3(0.02f, 0.02f, 0.02f),
-    glm::vec3(0.0f, 0.4f, 0.4f),
+    glm::vec3(0.0f, 0.6f, 0.6f),
     glm::vec3(0.0f, 1.5f, 1.0f),
 
-    //1.0f, 0.045f, 0.075f
-    1.0f, 0.0f, 0.075f
+    1.0f, 0.015f, 0.055f
 };
 
 const std::vector<Vertex> GameData::cube_vnt_data = {
