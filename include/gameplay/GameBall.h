@@ -24,6 +24,7 @@ class GameBall : public GameObject {
 
     public:
         GameBall();
+        bool stop = false;
 
     public:
         void update() override;
@@ -44,6 +45,9 @@ class GameBall : public GameObject {
         }
         float getVelocity(){
             return velocity;
+        }
+        void setVelocity(float v){
+            velocity = v;
         }
 };
 
