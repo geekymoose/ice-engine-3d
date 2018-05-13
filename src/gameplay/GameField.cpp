@@ -1,6 +1,7 @@
 #include "gameplay/GameField.h"
 #include "utils/constants.h"
 #include "utils/log.h"
+#include "engine/Game.h"
 
 #include <glm/glm.hpp>
 #include <fstream>
@@ -15,7 +16,9 @@ GameField::GameField(){
     for(int i=0; i<GAME_FIELD_SIZE_X; ++i){
         for (int j=0; j<GAME_FIELD_SIZE_Y; ++j){
         
-            blockList[i][j] = ice::GameBlock(glm::vec3(i,0,j));
+            blockList[i][j] = new GameBlock(glm::vec3(i,0,j));
+
+            //Game::getInstance().registerGameObject(static_cast<GameObject*>(blockList[i][j]));
         }
     }
 }
@@ -36,7 +39,7 @@ void GameField::initLevel(const int level){
             LOG << strList[i] + "\n";
 
             for(int j = 0; j<GAME_FIELD_SIZE_X; ++j){
-                blockList[i][j].setStatus(parse(strList[i][j]));
+                blockList[i][j]->setStatus(parse(strList[i][j]));
             }
         }
     }else{
@@ -99,7 +102,7 @@ void GameField::cleanLevel(){
     for (int i = 0; i<GAME_FIELD_SIZE_X; ++i){
         for(int j = 0; j<GAME_FIELD_SIZE_Y; ++j){
             
-            blockList[i][j].setStatus(2);
+            blockList[i][j]->setStatus(2);
         }
     }
 }

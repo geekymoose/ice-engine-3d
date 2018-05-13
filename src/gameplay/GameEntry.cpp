@@ -15,11 +15,14 @@ namespace ice{
 void GameEntry::start(){
     // GameObject* o = new Blabla();
     // Game::getInstance().registerGameObject(o);
+
+   _gm = new ice::GameMaster();
+   _gm->start();
 }
 
 void GameEntry::end(){
+    _gm->end();
 }
-
 
 }
 
