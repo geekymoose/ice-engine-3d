@@ -1,5 +1,7 @@
 #include "gameplay/GameEntry.h"
 
+#include "gameplay/GameSetup.h"
+
 
 /*
  *
@@ -13,6 +15,7 @@ namespace ice{
 
 
 void GameEntry::start(){
+    GameSetup::loadGameData();
     // GameObject* o = new Blabla();
     // Game::getInstance().registerGameObject(o);
 

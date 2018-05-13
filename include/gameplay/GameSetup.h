@@ -1,0 +1,35 @@
+#pragma once
+
+#include "GameData.h"
+
+#include "utils/log.h"
+#include "engine/MeshManager.h"
+
+#include <vector>
+
+namespace ice {
+
+
+/**
+ * Load all the GameData.
+ */
+class GameSetup {
+
+    public:
+        static void loadGameData() {
+            LOG << "DATA: load game data (Mesh...)\n";
+            // Little bit hard coded (Little bit)
+
+            // Add block Mesh data
+            MeshManager::getInstance().createMesh(
+                    "GameBlock",
+                    GameData::cube_vnt_data,
+                    GameData::cube_indices_data,
+                    std::vector<Texture>{});
+        }
+};
+
+
+} // End namespace
+
+

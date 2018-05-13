@@ -1,21 +1,22 @@
 #pragma once
 
+#include "GameBall.h"
 
 
 namespace ice{
 
 class GameField;
 
+
 class GameMaster{
     private:
-        ice::GameField* field;
+        GameBall*   gameBall;
+        GameField* field;
 
 
     public :
         void start();
         void end();
-
-
 };
 
 }

@@ -43,15 +43,10 @@ class Mesh {
         unsigned int _EBO;
 
 
-    public:
-        /** List of all vertices for this Mesh. */
-        std::vector<Vertex> _vertices;
-
-        /** Indices of triangles. */
-        std::vector<unsigned int> _indices;
-
-        /** Textures. */
-        std::vector<Texture> _textures;
+    private:
+        std::vector<Vertex>         _vertices;
+        std::vector<unsigned int>   _indices;
+        std::vector<Texture>        _textures;
 
 
     public:
