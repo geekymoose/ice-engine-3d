@@ -79,8 +79,12 @@ void Game::fixedUpdate() {
 }
 
 void Game::drawAll() {
+    // TODO: Switch in Render Engine.
+
     _cctv.updateViewData();
-    glm::mat4 perpectiveM = _cctv.getViewMatrix();
+
+    glm::mat4 view          = _cctv.getViewMatrix();
+    glm::mat4 projection    = _cctv.getPerspectiveMatrix();
 
     for(GameObject* elt : _gameObjects) {
         assert(elt != nullptr); // We love asserts (Its actually useless here)

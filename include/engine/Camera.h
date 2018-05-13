@@ -1,9 +1,11 @@
 #pragma once
 
 #include "utils/constants.h"
+#include "WindowGLFW.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+
 
 namespace ice {
 
@@ -16,7 +18,7 @@ namespace ice {
  */
 class Camera {
     private:
-        float _fow              = 45.0f; // Default value
+        float _fov              = 45.0f; // Default value
 
         glm::vec3 _camPos       = glm::vec3(0.0f, 0.0f, 0.0f);
 
@@ -39,6 +41,14 @@ class Camera {
 
         glm::mat4 getViewMatrix() const {
             return glm::lookAt(_camPos, _camDir, _camUp);
+        }
+
+        glm::mat4 getPerspectiveMatrix() const {
+            int width, height;
+            glfwGetWindowSize(WindowGLFW::getInstance()._window, &width, &height);
+            float ratio = (float)width / (float)height;
+
+            return glm::perspective(glm::radians(_fov), ratio, 0.1f, 100.0f);
         }
 };
 
