@@ -2,6 +2,7 @@
 
 #include "glm/glm.hpp"
 #include "engine/GameObject.h"
+#include "utils/constants.h"
 
 namespace ice {
 
@@ -13,7 +14,8 @@ class GameBlock : GameObject {
          * 2 is a wall
          */
         int status;
-
+    
+        Tag tag;
 
         glm::vec3 target;
 
@@ -27,6 +29,9 @@ class GameBlock : GameObject {
         void fixedUpdate() override;
         void update() override;
 
+        Tag getTag(){
+            return tag;
+        }
 
 };
 
