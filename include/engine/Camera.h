@@ -66,6 +66,11 @@ class Camera {
 
             return glm::perspective(glm::radians(_fov), ratio, 0.1f, 100.0f);
         }
+
+    public:
+        glm::vec3 getPosition() const {
+            return _camPos;
+        }
 };
 
 

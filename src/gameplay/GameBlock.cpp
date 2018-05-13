@@ -46,7 +46,17 @@ namespace ice {
         model = glm::scale(model, scale);
         shader.setMat4("model", model);
 
-        //PointLight& l =  pLight;
+        PointLight& l = GameData::pLight;
+
+        shader.setVec3("light.position", l.position);
+
+        shader.setVec3("light.ambiant",  l.ambiant);
+        shader.setVec3("light.diffuse",  l.diffuse);
+        shader.setVec3("light.specular", l.specular);
+
+        shader.setFloat("light.attenuation_kc", l.attenuation_kc);
+        shader.setFloat("light.attenuation_kl", l.attenuation_kl);
+        shader.setFloat("light.attenuation_kq", l.attenuation_kq);
 
         mesh.draw(shader);
     }

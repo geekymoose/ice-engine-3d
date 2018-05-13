@@ -1,5 +1,7 @@
 #include "gameplay/GameBall.h"
 
+#include "gameplay/GameData.h"
+
 #include "engine/TimeManager.h"
 #include "engine/MeshManager.h"
 #include "engine/InputManager.h"
@@ -57,6 +59,10 @@ void GameBall::update() {
     if(input.isKeyDown("down")) {
         position.z += moveSpeed * dt;
     }
+
+    PointLight& l = GameData::pLight;
+    l.position.x = position.x;
+    l.position.z = position.z;
 }
 
 void GameBall::fixedUpdate() {
