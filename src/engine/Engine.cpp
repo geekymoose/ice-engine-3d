@@ -8,7 +8,8 @@ Engine::Engine(Game& game)
       _window(WindowGLFW::getInstance()),
       _timeManager(TimeManager::getInstance()),
       _inputManager(InputManager::getInstance()),
-      _meshManager(MeshManager::getInstance())
+      _meshManager(MeshManager::getInstance()),
+      _textureManager(TextureManager::getInstance())
     {
 }
 

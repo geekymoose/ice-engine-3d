@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Texture.h"
+
 #include <glm/glm.hpp>
 #include <vector>
 #include <string>
@@ -18,15 +20,6 @@ struct Vertex {
     glm::vec3   _position;
     glm::vec3   _normal;
     glm::vec2   _textureUV;
-};
-
-
-/**
- * Structure of a texture.
- */
-struct Texture {
-    unsigned int _id;
-    std::string type;
 };
 
 

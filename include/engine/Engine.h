@@ -6,6 +6,7 @@
 #include "RenderEngine.h"
 #include "InputManager.h"
 #include "MeshManager.h"
+#include "TextureManager.h"
 
 #include "utils/log.h"
 
@@ -34,6 +35,7 @@ class Engine {
         WindowGLFW&     _window;
         InputManager&   _inputManager;
         MeshManager&    _meshManager;
+        TextureManager& _textureManager;
 
 
     // -------------------------------------------------------------------------

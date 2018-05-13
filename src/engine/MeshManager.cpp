@@ -15,6 +15,7 @@ void MeshManager::startup() {
 
 void MeshManager::shutdown() {
     LOG << "Shutdown MeshManager\n";
+    _meshes.clear();
     // Things to do?
 }
 
