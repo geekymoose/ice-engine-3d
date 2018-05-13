@@ -17,9 +17,10 @@
 #define GAME_FIELD_SIZE_X       20
 #define GAME_FIELD_SIZE_Y       10
 #define BLOCK_SPEED             5
-#define GAME_BALL_ACCELERATION  0.2
-#define GAME_BALL_MAX_SPEED     3
-#define GAME_BALL_BOUNCE        1
+#define GAME_BALL_ACCELERATION  0.5
+#define GAME_BALL_MAX_SPEED     6
+#define GAME_BALL_BOUNCE        2
+#define GAME_SOAP_GROUND        4
 
 // System Path
 

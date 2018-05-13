@@ -15,13 +15,16 @@ void PhysicEngine::registerGameField(GameField* field){
 void PhysicEngine::fixedUpdate(){
     float dt = TimeManager::getInstance().getFixedDeltaTime();
 
+    //LOG << "coucou";
+
     glm::vec3 ballPos = _ball->getPos();
     glm::vec3 ballTarget = _ball->getTarget();
     float ballVelocity = _ball->getVelocity();
 
-    glm::vec3 ghostPos = mathHelper::lerp(ballPos, 
-                                        ballTarget, 
-                                        mathHelper::clamp01(ballVelocity));
+    glm::vec3 d(ballTarget.x - ballPos.x, ballTarget.y - ballPos.y, ballTarget.z - ballPos.z);
+    glm::vec3 direction = glm::normalize(d);
+
+    //LOG << "Direction : (" << direction.x << ", " << direction.y << ", " << direction.z << ") \n";
 
     glm::vec2 currentPos(std::floor(ballPos.x),std::floor(ballPos.z));
     
@@ -32,61 +35,59 @@ void PhysicEngine::fixedUpdate(){
      * 2b3
      * -4-
      */
-    int stateAround[4];
+    GameBlock* blockAround[4];
    
 
-    /*
-     * The most hard coded state machine ever
-     */
-    stateAround[0] = _field->getState(currentPos.x, currentPos.y+1);
-    stateAround[1] = _field->getState(currentPos.x-1, currentPos.y);
-    stateAround[2] = _field->getState(currentPos.x+1, currentPos.y);
-    stateAround[3] = _field->getState(currentPos.x-1, currentPos.y-1);
+    blockAround[0] = _field->getGB(currentPos.x  , currentPos.y+1);
+    blockAround[1] = _field->getGB(currentPos.x-1, currentPos.y);
+    blockAround[2] = _field->getGB(currentPos.x+1, currentPos.y);
+    blockAround[3] = _field->getGB(currentPos.x-1, currentPos.y-1);
 
-    if(ghostPos.z >= ballPos.z + 1){
-        switch(stateAround[0]){
+
+
+    if(ballPos.z + direction.z * ballVelocity >= currentPos.y+1 - .5f){
+        switch(blockAround[0]->getStatus()){
             case 0:
                 fall();
                 break;
             case 2:
-                ballTarget.z -= GAME_BALL_BOUNCE;
+                LOG << "TOP collid \n";
+                //ballTarget.z -= GAME_BALL_BOUNCE;
                 break;
         }
     }
-
-    if(ghostPos.x <= ballPos.x - 1){
-        switch(stateAround[1]){
+      if(ballPos.z + direction.z * ballVelocity <= currentPos.y-1 + .5f){
+        switch(blockAround[0]->getStatus()){
             case 0:
                 fall();
                 break;
             case 2:
-                ballTarget.x += GAME_BALL_BOUNCE;
+                LOG << "BOT collid \n";
+                //ballTarget.z -= GAME_BALL_BOUNCE;
                 break;
         }
-    }
-
-    if(ghostPos.x >= ballPos.x + 1){
-        switch(stateAround[2]){
+    }  if(ballPos.z + direction.z * ballVelocity >= currentPos.y+1 - .5f){
+        switch(blockAround[0]->getStatus()){
             case 0:
                 fall();
                 break;
             case 2:
-                ballTarget.x -= GAME_BALL_BOUNCE;
+                LOG << "TOP collid \n";
+                //ballTarget.z -= GAME_BALL_BOUNCE;
                 break;
         }
-    }
-    if(ghostPos.z <= ballPos.z - 1){
-        switch(stateAround[3]){
+    }  if(ballPos.z + direction.z * ballVelocity >= currentPos.y+1 - .5f){
+        switch(blockAround[0]->getStatus()){
             case 0:
                 fall();
                 break;
             case 2:
-                ballTarget.z += GAME_BALL_BOUNCE;
+                LOG << "TOP collid \n";
+                //ballTarget.z -= GAME_BALL_BOUNCE;
                 break;
         }
     }
 
-    _ball->setTarget(ballTarget);
 }
 
 void PhysicEngine::fall(){

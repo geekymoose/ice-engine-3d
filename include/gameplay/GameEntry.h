@@ -7,6 +7,7 @@ namespace ice {
 class GameEntry {
     public:
        void start();
+       void fixedUpdate();
        void end();
 
     private:

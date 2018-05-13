@@ -21,7 +21,8 @@ class GameField {
         void initLevel(int level);
 
         // return the state of the block at xy
-        int getState(int x, int y);
+        GameBlock* getGB(int x, int y);
+
 
  
     private:

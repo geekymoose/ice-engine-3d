@@ -28,6 +28,9 @@ void GameEntry::end(){
     _gm->end();
 }
 
+void GameEntry::fixedUpdate(){
+    _gm->fixedUpdate();
+}
 
 }
 

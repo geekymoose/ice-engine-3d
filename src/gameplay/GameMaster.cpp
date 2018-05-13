@@ -2,8 +2,8 @@
 #include "gameplay/GameField.h"
 #include "engine/Game.h"
 
-
 namespace ice{
+
 
 void GameMaster::start(){
 
@@ -14,8 +14,15 @@ void GameMaster::start(){
     gameBall = new GameBall();
 
     Game::getInstance().registerGameObject(gameBall);
+
+    physicEngine = new PhysicEngine();
+    physicEngine->registerGameBall(gameBall);
+    physicEngine->registerGameField(field);
 }
 
+void GameMaster::fixedUpdate(){
+    physicEngine->fixedUpdate();
+}
 
 void GameMaster::end(){
     delete field;

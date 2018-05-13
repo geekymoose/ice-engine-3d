@@ -65,7 +65,7 @@ class GameObject {
         bool isMarkedToDestroy() const {
             return _toDestroy;
         }
-        glm::vec3 getPos() const{
+        glm::vec3 getPos(){
             return position;
         }
 };
