@@ -40,7 +40,6 @@ class GameSetup {
             LOG << "Register all gameplay inputs for the game\n";
 
             InputManager& _input = InputManager::getInstance();
-            _input.registerInput("debug1", GLFW_KEY_D);
             _input.registerInput("right", GLFW_KEY_D);
             _input.registerInput("left", GLFW_KEY_A);
             _input.registerInput("up", GLFW_KEY_W);

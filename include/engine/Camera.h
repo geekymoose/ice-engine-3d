@@ -20,7 +20,7 @@ namespace ice {
  */
 class Camera {
     private:
-        float _fov              = 45.0f; // Default value
+        float _fov              = 60.0f; // Default value
 
         glm::vec3 _camPos       = glm::vec3(0.0f, 20.0f, 0.0f);
         glm::vec3 _camTarget    = glm::vec3(0.01f, 0.01f, 0.01f);
@@ -33,6 +33,10 @@ class Camera {
 
     public:
 
+        /**
+         * To call once a frame.
+         * Update all camera internal data.
+         */
         void updateViewData() {
             _camDir     = glm::normalize(_camTarget - _camDir);
             _camRight   = glm::normalize(glm::cross(_camDir, _worldUp));

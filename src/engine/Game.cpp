@@ -66,10 +66,6 @@ void Game::update() {
     for(GameObject* elt : _gameObjects) {
         elt->update();
     }
-
-    if(InputManager::getInstance().isKeyDown("debug1")) {
-        LOG << "Debug key pressed\n";
-    }
 }
 
 void Game::fixedUpdate() {
@@ -88,7 +84,8 @@ void Game::drawAll() {
     glm::mat4 view          = _cctv.getViewMatrix();
     glm::mat4 projection    = _cctv.getPerspectiveMatrix();
 
-    ShaderProgram shader("./shader/cube.vert", "./shader/phong_illu.frag");
+    static ShaderProgram shader("./shader/cube.vert", "./shader/phong_illu.frag");
+
     shader.use();
     shader.setMat4("view", view);
     shader.setMat4("projection", projection);
@@ -98,17 +95,6 @@ void Game::drawAll() {
 
         elt->draw(shader);
     }
-
-    // TODO TMP Debug
-    /*
-    Mesh& mm = MeshManager::getInstance().getMesh("GameBlock");
-    shader.use();
-    shader.setMat4("model", model);
-    shader.setMat4("view", view);
-    shader.setMat4("projection", projection);
-
-    mm.draw(shader);
-    */
 }
 
 void Game::registerGameObject(GameObject* o) {
