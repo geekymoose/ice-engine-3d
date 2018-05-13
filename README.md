@@ -1,13 +1,14 @@
 # Runic Ice
-CreativeJam 2018 (Montreal).
-
 
 # Description
-Jam ongoing!
+Ice engine is a 3D engine made totally from scratch during the CreativeJam 2018.
+We had 48h todo everything.
 
 
 # Dependencies
 - glfw3
+- glm (Included in the code)
+- glad (Included in the code)
 
 
 # Build / Run (Linux only)
