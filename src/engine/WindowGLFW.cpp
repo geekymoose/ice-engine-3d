@@ -22,9 +22,9 @@ bool WindowGLFW::startup() {
 
     // Create the window
     _window = glfwCreateWindow(ICE_WINDOW_WIDTH,
-                         ICE_WINDOW_HEIGHT,
-                         ICE_WINDOW_TITLE,
-                         NULL, NULL);
+                               ICE_WINDOW_HEIGHT,
+                               ICE_WINDOW_TITLE,
+                               NULL, NULL);
     if(_window == NULL) {
         LOG << "Unable to create the glfw Window...\n";
         return false;
@@ -42,11 +42,10 @@ bool WindowGLFW::startup() {
     return true;
 }
 
-bool WindowGLFW::shutdown() {
+void WindowGLFW::shutdown() {
     LOG << "Shutdown GLFW Window\n";
     glfwDestroyWindow(_window);
     glfwTerminate();
-    return true;
 }
 
 void WindowGLFW::update() {

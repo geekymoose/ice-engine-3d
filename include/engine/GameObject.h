@@ -19,6 +19,11 @@ class GameObject {
     protected:
         glm::vec3 position;
 
+
+    // -------------------------------------------------------------------------
+    // Core methods
+    // -------------------------------------------------------------------------
+
     public:
 
         /**
@@ -52,8 +57,9 @@ class GameObject {
         bool isMarkedToDestroy() const {
             return _toDestroy;
         }
-
 };
 
 
 } // End namespace
+
+

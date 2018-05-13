@@ -36,6 +36,8 @@ class WindowGLFW : private Singleton<WindowGLFW> {
         /**
          * Startup Window.
          * Must be the first to be called in the engine (Since also initialize GLFW).
+         *
+         * \return True if successfully started up, otherwise, false.
          */
         bool startup();
 
@@ -43,8 +45,12 @@ class WindowGLFW : private Singleton<WindowGLFW> {
          * End Window.
          * Last to call (Since also stop GLFW).
          */
-        bool shutdown();
+        void shutdown();
 
+        /**
+         * Update the window buffers.
+         * Usually to call at the end.
+         */
         void update();
 
 
