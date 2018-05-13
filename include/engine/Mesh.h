@@ -69,7 +69,7 @@ class Mesh {
         /**
          * Draw Mesh using given ShaderProgram.
          */
-        void draw(ShaderProgram& shaderProgram) const;
+        void draw(ShaderProgram& shaderProgram);
 };
 
 

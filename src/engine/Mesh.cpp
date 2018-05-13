@@ -48,6 +48,18 @@ void Mesh::setup() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
+void Mesh::draw(ShaderProgram& shaderProgram) {
+    shaderProgram.use();
+
+    // TODO Add texture management
+
+    glBindVertexArray(_VAO);
+
+    // Note: since using EBO, size should actually be smaller that this: todo
+    glDrawElements(GL_TRIANGLES, _indices.size(), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+}
+
 
 } // End namespace
 

@@ -47,6 +47,9 @@ class Game : private Singleton<Game> {
     // -------------------------------------------------------------------------
 
     public:
+        /**
+         * Start the game! Yoooloooo let's gooo!
+         */
         void run();
 
         /**
@@ -67,6 +70,11 @@ class Game : private Singleton<Game> {
          * destroyed, free(o) is called.
          */
         void registerGameObject(GameObject* o);
+
+        /**
+         * Draw all game objects.
+         */
+        void drawAll();
 
 
     // -------------------------------------------------------------------------

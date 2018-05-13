@@ -87,6 +87,14 @@ void Game::fixedUpdate() {
     }
 }
 
+void Game::drawAll() {
+    for(GameObject* elt : _gameObjects) {
+        LOG << "X";
+        assert(elt != nullptr); // We love asserts (Its actually useless here)
+        // TODO Draw element (Get Mesh, create matrix, draw)
+    }
+}
+
 void Game::registerGameObject(GameObject* o) {
     assert(o != nullptr);
     _gameObjects.push_back(o); // Yeap, the famous push_back. But size reserved

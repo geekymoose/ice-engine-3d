@@ -56,20 +56,18 @@ void Engine::run() {
         _inputManager.update();
         _window.clear();
 
-        //LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
-
         _game.update();
         if(_timeManager.hasFixedUpdate()) {
             _game.fixedUpdate();
         }
 
-        // TODO: call render engine
-
+        _game.drawAll();
         _window.update();
 
         if(_window.isClosed()) {
             _isRunning = false;
         }
+        //LOG << "FPS: " << _timeManager.getCurrentFPS() << "\n";
     }
 }
 
