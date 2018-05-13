@@ -36,22 +36,29 @@ void GameBall::update() {
     float dt = TimeManager::getInstance().getDeltaTime();
 
     // Move player
-    InputManager& input = InputManager::getInstance();
-    if(input.isKeyDown("right")) {
-        accelerate();
-        target.x += dt * GAME_SOAP_GROUND;
+    if( position.x < 20 && position.x >= 0 && position.z >= 0&& position.z < 10){
+	    InputManager& input = InputManager::getInstance();
+	    if(input.isKeyDown("right")) {
+		accelerate();
+		target.x += dt * GAME_SOAP_GROUND;
+	    }
+	    if(input.isKeyDown("left")) {
+		accelerate();
+		target.x -= dt * GAME_SOAP_GROUND;
+	    }
+	    if(input.isKeyDown("up") ) {
+		accelerate();
+		target.z -= dt * GAME_SOAP_GROUND;
+	    }
+	    if(input.isKeyDown("down") ) {
+		accelerate();
+		target.z += dt * GAME_SOAP_GROUND;        
+	    }
     }
-    if(input.isKeyDown("left")) {
+    else {
+        target.x = 10;
+        target.z = 5;
         accelerate();
-        target.x -= dt * GAME_SOAP_GROUND;
-    }
-    if(input.isKeyDown("up")) {
-        accelerate();
-        target.z -= dt * GAME_SOAP_GROUND;
-    }
-    if(input.isKeyDown("down")) {
-        accelerate();
-        target.z += dt * GAME_SOAP_GROUND;        
     }
 
     PointLight& l = GameData::pLight;
@@ -61,10 +68,12 @@ void GameBall::update() {
 }
 
 void GameBall::fixedUpdate() {
+    if(!stop){
     float dt = TimeManager::getInstance().getFixedDeltaTime();
     position = mathHelper::lerp(position,
                                 target,
                                 mathHelper::clamp01(velocity * dt));
+    }
 }
 
 void GameBall::draw(ShaderProgram& shader) {
