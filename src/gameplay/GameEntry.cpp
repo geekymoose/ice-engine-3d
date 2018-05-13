@@ -18,15 +18,16 @@ void GameEntry::start(){
     GameSetup::loadAllInputs();
     GameSetup::loadGameData();
 
-    LOG << "GameEntry setuped \n";
+    LOG << "GameEntry setup successfully done! (Beautiful isn't it?)\n";
 
-   _gm = new ice::GameMaster();
+   _gm = new GameMaster();
    _gm->start();
 }
 
 void GameEntry::end(){
     _gm->end();
 }
+
 
 }
 

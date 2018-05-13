@@ -1,5 +1,7 @@
 #pragma once
 
+#include "engine/ShaderProgram.h"
+
 #include <glm/glm.hpp>
 
 namespace ice {
@@ -17,9 +19,8 @@ class GameObject {
         bool _toDestroy = false;
 
     protected:
-        glm::vec3 position;
-        glm::vec3 scale;
-        glm::vec3 rotation;
+        glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);;
+        glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 
     // -------------------------------------------------------------------------
@@ -39,6 +40,11 @@ class GameObject {
          * (Use fixed deltaTime).
          */
         virtual void fixedUpdate() = 0;
+
+        /**
+         * Draw Gameobject using given shader.
+         */
+        virtual void draw(ShaderProgram& shader) = 0;
 
     public:
 

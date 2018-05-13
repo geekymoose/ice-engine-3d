@@ -28,6 +28,7 @@ class GameBlock : GameObject {
         void setStatus(int status);
         void fixedUpdate() override;
         void update() override;
+        void draw(ShaderProgram& shader) override;
 
         Tag getTag(){
             return tag;

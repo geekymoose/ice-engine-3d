@@ -25,6 +25,14 @@ namespace ice {
                                     mathHelper::clamp01(BLOCK_SPEED * dt));
     }
 
+    void GameBlock::draw(ShaderProgram& shader) {
+        shader.use();
+        glm::mat4 model(1.0f);
+        shader.setMat4("model", model);
+
+        //mesh.draw(shader); // TODO
+    }
+
     /*
      * Here status gonna juste move a block
      *

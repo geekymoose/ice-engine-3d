@@ -1,9 +1,10 @@
 #pragma once
 
-
 #include "engine/GameObject.h"
 
 namespace ice {
+
+class Mesh;
 
 
 /**
@@ -12,12 +13,19 @@ namespace ice {
  */
 class GameBall : public GameObject {
     private:
-        float velocity;
         glm::vec3 target;
+        Mesh& mesh;
+
+        float velocity;
+        float moveSpeed;
+
+    public:
+        GameBall();
 
     public:
         void update() override;
         void fixedUpdate() override;
+        void draw(ShaderProgram& shader) override;
 
         void accelerate();
         void decelerate();

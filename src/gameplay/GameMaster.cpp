@@ -12,7 +12,7 @@ void GameMaster::start(){
 
     gameBall = new GameBall();
 
-   // Game::getInstance().registerGameObject(gameBall);
+    Game::getInstance().registerGameObject(gameBall);
 }
 
 

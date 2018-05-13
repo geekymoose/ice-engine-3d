@@ -85,25 +85,30 @@ void Game::drawAll() {
 
     _cctv.updateViewData();
 
-    glm::mat4 model(1.0f);
     glm::mat4 view          = _cctv.getViewMatrix();
     glm::mat4 projection    = _cctv.getPerspectiveMatrix();
+
+    ShaderProgram shader("./shader/cube.vert", "./shader/phong_illu.frag");
+    shader.use();
+    shader.setMat4("view", view);
+    shader.setMat4("projection", projection);
 
     for(GameObject* elt : _gameObjects) {
         assert(elt != nullptr); // We love asserts (Its actually useless here)
 
-        // TODO Draw element (Get Mesh, create matrix, draw)
+        elt->draw(shader);
     }
 
     // TODO TMP Debug
+    /*
     Mesh& mm = MeshManager::getInstance().getMesh("GameBlock");
-    ShaderProgram shader("./shader/cube.vert", "./shader/phong_illu.frag");
     shader.use();
     shader.setMat4("model", model);
     shader.setMat4("view", view);
     shader.setMat4("projection", projection);
 
     mm.draw(shader);
+    */
 }
 
 void Game::registerGameObject(GameObject* o) {
