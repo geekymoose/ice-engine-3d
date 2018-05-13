@@ -90,6 +90,8 @@ void Game::drawAll() {
     shader.use();
     shader.setMat4("view", view);
     shader.setMat4("projection", projection);
+    shader.setVec3("eyePos", _cctv.getPosition());
+    shader.setFloat("shininess", 32.0f);
 
     for(GameObject* elt : _gameObjects) {
         assert(elt != nullptr); // We love asserts (Its actually useless here)

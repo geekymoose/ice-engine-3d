@@ -1,5 +1,7 @@
 #include "gameplay/GameBall.h"
 
+#include "gameplay/GameData.h"
+
 #include "engine/TimeManager.h"
 #include "engine/MeshManager.h"
 #include "engine/InputManager.h"
@@ -21,6 +23,10 @@ GameBall::GameBall() : mesh(MeshManager::getInstance().getMesh("GameBall")){
     position.z = 1;
 
     target = position;
+    
+    scale.x = 0.2;
+    scale.y = 0.2;
+    scale.z = 0.2;
 }
 
 void GameBall::update() {
@@ -31,29 +37,34 @@ void GameBall::update() {
 
     // Move player
     if( position.x < 20 && position.x >= 0 && position.z >= 0&& position.z < 10){
-    InputManager& input = InputManager::getInstance();
-    if(input.isKeyDown("right")) {
-        accelerate();
-        target.x += dt * GAME_SOAP_GROUND;
-    }
-    if(input.isKeyDown("left")) {
-        accelerate();
-        target.x -= dt * GAME_SOAP_GROUND;
-    }
-    if(input.isKeyDown("up") ) {
-        accelerate();
-        target.z -= dt * GAME_SOAP_GROUND;
-    }
-    if(input.isKeyDown("down") ) {
-        accelerate();
-        target.z += dt * GAME_SOAP_GROUND;        
-    }
+	    InputManager& input = InputManager::getInstance();
+	    if(input.isKeyDown("right")) {
+		accelerate();
+		target.x += dt * GAME_SOAP_GROUND;
+	    }
+	    if(input.isKeyDown("left")) {
+		accelerate();
+		target.x -= dt * GAME_SOAP_GROUND;
+	    }
+	    if(input.isKeyDown("up") ) {
+		accelerate();
+		target.z -= dt * GAME_SOAP_GROUND;
+	    }
+	    if(input.isKeyDown("down") ) {
+		accelerate();
+		target.z += dt * GAME_SOAP_GROUND;        
+	    }
     }
     else {
         target.x = 10;
         target.z = 5;
         accelerate();
     }
+
+    PointLight& l = GameData::pLight;
+    l.position.x = position.x;
+    l.position.z = position.z;
+    l.position.y = position.y + 2;
 }
 
 void GameBall::fixedUpdate() {
