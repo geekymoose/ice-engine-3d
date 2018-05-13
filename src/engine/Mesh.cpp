@@ -52,6 +52,14 @@ void Mesh::draw(ShaderProgram& shaderProgram) {
     shaderProgram.use();
 
     // TODO Add texture management
+    // Hard coded: we know there is always 2 textures (diffuse, specular)
+    Texture& t1 = _textures.at(0);
+    Texture& t2 = _textures.at(1);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, t1._id);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, t2._id);
 
     glBindVertexArray(_VAO);
 
