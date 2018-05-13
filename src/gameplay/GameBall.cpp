@@ -29,7 +29,7 @@ void GameBall::update() {
         scale.y += newScale;
         scale.z += newScale;
 
-        if(scale.x >= 1.3) {
+        if(scale.x >= 1.1) {
             growing = false;
         }
     }
@@ -38,19 +38,24 @@ void GameBall::update() {
         scale.y -= newScale;
         scale.z -= newScale;
 
-        if(scale.x <= 0.8) {
+        if(scale.x <= 1) {
             growing = true;
         }
     }
 
+    // Move player
     InputManager& input = InputManager::getInstance();
     if(input.isKeyDown("right")) {
+        position.x += moveSpeed * dt;
     }
-    else if(input.isKeyDown("left")) {
+    if(input.isKeyDown("left")) {
+        position.x -= moveSpeed * dt;
     }
-    else if(input.isKeyDown("up")) {
+    if(input.isKeyDown("up")) {
+        position.z -= moveSpeed * dt;
     }
-    else if(input.isKeyDown("down")) {
+    if(input.isKeyDown("down")) {
+        position.z += moveSpeed * dt;
     }
 }
 
@@ -62,8 +67,6 @@ void GameBall::fixedUpdate() {
 }
 
 void GameBall::draw(ShaderProgram& shader) {
-    position = glm::vec3(0.0f, 0.0f, 0.0f); //TODO: TMP
-
     shader.use();
     glm::mat4 model(1.0f);
     model = glm::translate(model, position);

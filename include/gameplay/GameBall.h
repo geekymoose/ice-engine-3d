@@ -13,11 +13,14 @@ class Mesh;
  */
 class GameBall : public GameObject {
     private:
+        // INTERNAL DATA
         glm::vec3 target;
         Mesh& mesh;
-
         float velocity;
-        float moveSpeed;
+
+    private:
+        // GAMEPLAY DATA
+        float moveSpeed = 5.0f;
 
     public:
         GameBall();
