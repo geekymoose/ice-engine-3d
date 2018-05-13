@@ -84,7 +84,7 @@ void GameBall::draw(ShaderProgram& shader) {
     model = glm::scale(model, scale);
     shader.setMat4("model", model);
 
-    mesh.draw(shader);
+    //mesh.draw(shader); // For now, we finally don't render it (Cuz he's ugly)
 }
 
 void GameBall::accelerate(){
