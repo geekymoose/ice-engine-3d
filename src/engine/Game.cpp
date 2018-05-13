@@ -97,7 +97,7 @@ void Game::drawAll() {
 
     // TODO TMP Debug
     Mesh& mm = MeshManager::getInstance().getMesh("GameBlock");
-    ShaderProgram shader("./shaders/cube.vert", "./shaders/phong_illu.frag");
+    ShaderProgram shader("./shader/cube.vert", "./shader/phong_illu.frag");
     shader.use();
     shader.setMat4("model", model);
     shader.setMat4("view", view);

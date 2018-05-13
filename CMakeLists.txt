@@ -46,5 +46,5 @@ add_custom_target(run runic-ice)
 # ------------------------------------------------------------------------------
 
 # Copy shaders and resources in build
-FILE(COPY shaders DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY shader DESTINATION "${CMAKE_BINARY_DIR}")
 FILE(COPY resources DESTINATION "${CMAKE_BINARY_DIR}")
