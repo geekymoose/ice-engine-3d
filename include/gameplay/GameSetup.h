@@ -20,17 +20,12 @@ class GameSetup {
             LOG << "DATA: load game data (Mesh...)\n";
             // Little bit hard coded (Little bit)
 
-            std::vector<Vertex>         gameBlock_vertices;
-            std::vector<unsigned int>   gameBlock_indices;
-            std::vector<Texture>        gameBlock_textures;
-
-
             // Add block Mesh data
             MeshManager::getInstance().createMesh(
                     "GameBlock",
-                    gameBlock_vertices,
-                    gameBlock_indices,
-                    gameBlock_textures);
+                    GameData::cube_vnt_data,
+                    GameData::cube_indices_data,
+                    std::vector<Texture>{});
         }
 };
 

@@ -15,7 +15,7 @@ class GameData {
 
     public:
 
-        static const std::vector<float>         cube_vnt_data;
+        static const std::vector<Vertex>         cube_vnt_data;
         static const std::vector<unsigned int>  cube_indices_data;
 };
 
@@ -24,46 +24,45 @@ class GameData {
 // Static data
 // -----------------------------------------------------------------------------
 
-const std::vector<float> GameData::cube_vnt_data = {
+const std::vector<Vertex> GameData::cube_vnt_data = {
     // Position             // Normal           // Texture UV
 
     // Face 1
-    -0.5f, -0.5f, -0.5f,    0.0f, 0.0f, -1.0f,  0.0f, 0.0f,
-     0.5f, -0.5f, -0.5f,    0.0f, 0.0f, -1.0f,  1.0f, 0.0f,
-     0.5f,  0.5f, -0.5f,    0.0f, 0.0f, -1.0f,  1.0f, 1.0f,
-    -0.5f,  0.5f, -0.5f,    0.0f, 0.0f, -1.0f,  0.0f, 1.0f,
+    Vertex{{-0.5f, -0.5f, -0.5f},   {0.0f, 0.0f, -1.0f},  {0.0f, 0.0f}},
+    Vertex{{0.5f, -0.5f, -0.5f},    {0.0f, 0.0f, -1.0f},  {1.0f, 0.0f}},
+    Vertex{{0.5f,  0.5f, -0.5f},    {0.0f, 0.0f, -1.0f},  {1.0f, 1.0f}},
+    Vertex{{-0.5f,  0.5f, -0.5f},   {0.0f, 0.0f, -1.0f},  {0.0f, 1.0f}},
 
     // Face 2
-    -0.5f, -0.5f,  0.5f,    0.0f, 0.0f, 1.0f,   0.0f, 0.0f,
-     0.5f, -0.5f,  0.5f,    0.0f, 0.0f, 1.0f,   1.0f, 0.0f,
-     0.5f,  0.5f,  0.5f,    0.0f, 0.0f, 1.0f,   1.0f, 1.0f,
-    -0.5f,  0.5f,  0.5f,    0.0f, 0.0f, 1.0f,   0.0f, 1.0f,
+    Vertex{{-0.5f, -0.5f,  0.5f},   {0.0f, 0.0f, 1.0f},   {0.0f, 0.0f}},
+    Vertex{{0.5f, -0.5f,  0.5f},    {0.0f, 0.0f, 1.0f},   {1.0f, 0.0f}},
+    Vertex{{0.5f,  0.5f,  0.5f},    {0.0f, 0.0f, 1.0f},   {1.0f, 1.0f}},
+    Vertex{{-0.5f,  0.5f,  0.5f},   {0.0f, 0.0f, 1.0f},   {0.0f, 1.0f}},
 
     // Face 3
-    -0.5f,  0.5f, -0.5f,    -1.0f, 0.0f, 0.0f,  1.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f,    -1.0f, 0.0f, 0.0f,  0.0f, 1.0f,
-    -0.5f, -0.5f,  0.5f,    -1.0f, 0.0f, 0.0f,  0.0f, 0.0f,
-    -0.5f,  0.5f,  0.5f,    -1.0f, 0.0f, 0.0f,  1.0f, 0.0f,
+    Vertex{{-0.5f,  0.5f, -0.5f},    {-1.0f, 0.0f, 0.0f},  {1.0f, 1.0f}},
+    Vertex{{-0.5f, -0.5f, -0.5f},    {-1.0f, 0.0f, 0.0f},  {0.0f, 1.0f}},
+    Vertex{{-0.5f, -0.5f,  0.5f},    {-1.0f, 0.0f, 0.0f},  {0.0f, 0.0f}},
+    Vertex{{-0.5f,  0.5f,  0.5f},    {-1.0f, 0.0f, 0.0f},  {1.0f, 0.0f}},
 
     // Face 4
-     0.5f,  0.5f, -0.5f,    1.0f, 0.0f, 0.0f,   1.0f, 1.0f,
-     0.5f, -0.5f, -0.5f,    1.0f, 0.0f, 0.0f,   0.0f, 1.0f,
-     0.5f, -0.5f,  0.5f,    1.0f, 0.0f, 0.0f,   0.0f, 0.0f,
-     0.5f,  0.5f,  0.5f,    1.0f, 0.0f, 0.0f,   1.0f, 0.0f,
+    Vertex{{0.5f,  0.5f, -0.5f},    {1.0f, 0.0f, 0.0f},   {1.0f, 1.0f}},
+    Vertex{{0.5f, -0.5f, -0.5f},    {1.0f, 0.0f, 0.0f},   {0.0f, 1.0f}},
+    Vertex{{0.5f, -0.5f,  0.5f},    {1.0f, 0.0f, 0.0f},   {0.0f, 0.0f}},
+    Vertex{{0.5f,  0.5f,  0.5f},    {1.0f, 0.0f, 0.0f},   {1.0f, 0.0f}},
 
     // Face 5
-     0.5f, -0.5f, -0.5f,    0.0f, -1.0f, 0.0f,  1.0f, 1.0f,
-     0.5f, -0.5f,  0.5f,    0.0f, -1.0f, 0.0f,  1.0f, 0.0f,
-    -0.5f, -0.5f,  0.5f,    0.0f, -1.0f, 0.0f,  0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f,    0.0f, -1.0f, 0.0f,  0.0f, 1.0f,
+    Vertex{{0.5f, -0.5f, -0.5f},    {0.0f, -1.0f, 0.0f},  {1.0f, 1.0f}},
+    Vertex{{0.5f, -0.5f,  0.5f},    {0.0f, -1.0f, 0.0f},  {1.0f, 0.0f}},
+    Vertex{{-0.5f, -0.5f,  0.5f},   {0.0f, -1.0f, 0.0f},  {0.0f, 0.0f}},
+    Vertex{{-0.5f, -0.5f, -0.5f},   {0.0f, -1.0f, 0.0f},  {0.0f, 1.0f}},
 
     // Face 6
-     0.5f,  0.5f, -0.5f,    0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
-     0.5f,  0.5f,  0.5f,    0.0f, 1.0f, 0.0f,   1.0f, 0.0f,
-    -0.5f,  0.5f,  0.5f,    0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
-    -0.5f,  0.5f, -0.5f,    0.0f, 1.0f, 0.0f,   0.0f, 1.0f,
+    Vertex{{0.5f,  0.5f, -0.5f},    {0.0f, 1.0f, 0.0f},   {1.0f, 1.0f}},
+    Vertex{{0.5f,  0.5f,  0.5f},    {0.0f, 1.0f, 0.0f},   {1.0f, 0.0f}},
+    Vertex{{-0.5f,  0.5f,  0.5f},   {0.0f, 1.0f, 0.0f},   {0.0f, 0.0f}},
+    Vertex{{-0.5f,  0.5f, -0.5f},   {0.0f, 1.0f, 0.0f},   {0.0f, 1.0f}},
 };
-
 
 const std::vector<unsigned int> GameData::cube_indices_data = {
     // note that we start from 0
@@ -92,6 +91,7 @@ const std::vector<unsigned int> GameData::cube_indices_data = {
     20, 21, 23,
     21, 22, 23,
 };
+
 
 } // End namespace
 
