@@ -20,7 +20,9 @@ class InputManager : private Singleton<InputManager> {
         bool _isInit;
         std::unordered_map<std::string, int> _keys;
 
+
     public:
+
         /**
          * Startup the Ice Input Manager.
          */
