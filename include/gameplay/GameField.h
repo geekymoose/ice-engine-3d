@@ -2,6 +2,7 @@
 
 #include "gameplay/GameBlock.h"
 #include "utils/constants.h"
+#include "utils/log.h"
 
 #include <iostream>
 #include <fstream>
@@ -22,6 +23,7 @@ class GameField {
         // return the state of the block at xy
         int getState(int x, int y);
 
+ 
     private:
         void cleanLevel();
         static int parse(char const s);
