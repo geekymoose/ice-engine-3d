@@ -16,9 +16,6 @@ bool WindowGLFW::startup() {
         exit(EXIT_FAILURE);
     }
     LOG << "GLFW successfully started\n";
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // Create the window
     _window = glfwCreateWindow(ICE_WINDOW_WIDTH,
