@@ -1,7 +1,7 @@
-[Imgur](https://i.imgur.com/GzgoeHP.png)
+![Imgur](https://i.imgur.com/GzgoeHP.png)
 
 
-# Ice Engine 2D
+# Ice Engine 3D
 > A C++ 3D engine with OpenGL
 
 
@@ -69,10 +69,10 @@ make run
 
 
 # Screenshots
-[Imgur](https://i.imgur.com/GzgoeHP.png)
-[Imgur](https://i.imgur.com/wiPFirD.png)
-[Imgur](https://i.imgur.com/yjSiouy.png)
-[Imgur](https://i.imgur.com/jRAHB1Q.png)
+![Imgur](https://i.imgur.com/GzgoeHP.png)
+![Imgur](https://i.imgur.com/wiPFirD.png)
+![Imgur](https://i.imgur.com/yjSiouy.png)
+![Imgur](https://i.imgur.com/jRAHB1Q.png)
 
 
 # Authors
