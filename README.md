@@ -77,4 +77,4 @@ make run
 
 # Authors
 - Constantin Masson ([constantinmasson.com](http://constantinmasson.com/))
-- Gaetan ([Ashijo](https://github.com/Ashijo))
+- Gaetan Pasquet ([Ashijo](https://github.com/Ashijo))
