@@ -42,8 +42,8 @@ target_link_libraries(ice-engine
 add_custom_target(runEngine ice-engine)
 
 # Copy shaders
-set(SHADERS_SRC "${CMAKE_SOURCE_DIR}/shader/")
-set(SHADERS_BIN "${CMAKE_BINARY_DIR}/shader/")
+set(SHADERS_SRC "${CMAKE_SOURCE_DIR}/shaders/")
+set(SHADERS_BIN "${CMAKE_BINARY_DIR}/shaders/")
 add_custom_command(
     OUTPUT "${SHADERS_BIN}"
     DEPENDS "${SHADERS_SRC}"

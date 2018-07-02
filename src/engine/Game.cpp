@@ -85,7 +85,7 @@ void Game::drawAll() {
     glm::mat4 view          = _cctv.getViewMatrix();
     glm::mat4 projection    = _cctv.getPerspectiveMatrix();
 
-    static ShaderProgram shader("./shader/cube.vert", "./shader/phong_illu.frag");
+    static ShaderProgram shader("./shaders/cube.vert", "./shaders/phong_illu.frag");
 
     shader.use();
     shader.setMat4("view", view);
