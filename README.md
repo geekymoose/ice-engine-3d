@@ -58,7 +58,6 @@ After a while, you may be able to cook some bacon on your computer, but we didn'
 # Build / Run with CMake (Linux only)
 > Requires C++11.
 > Requires "pragma once" support
-
 ```
 mkdir build
 cd build
@@ -66,6 +65,12 @@ cmake ..
 make -j4
 make run
 ```
+
+if your core profile version is equal or upper than 3.3 but you can't build the engine
+you can choose to use OpenGL3.3 by using
+'''
+MESA_GL_VERSION_OVERRIDE=3.3 ./build.sh
+'''
 
 
 # Screenshots
