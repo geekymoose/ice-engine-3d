@@ -68,9 +68,9 @@ make run
 
 if your core profile version is equal or upper than 3.3 but you can't build the engine
 you can choose to use OpenGL3.3 by using
-'''
+```
 MESA_GL_VERSION_OVERRIDE=3.3 ./build.sh
-'''
+```
 
 
 # Screenshots
