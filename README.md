@@ -66,8 +66,7 @@ make -j4
 make run
 ```
 
-if your core profile version is equal or upper than 3.3 but you can't build the engine
-you can choose to use OpenGL3.3 by using
+In case the selected OpenGL version is under 3.3 b, you can force OpenGL3.3 (be sure your computer support 3.3 use `glxinfo` to know it)
 ```
 MESA_GL_VERSION_OVERRIDE=3.3 ./build.sh
 ```
