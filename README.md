@@ -82,4 +82,4 @@ MESA_GL_VERSION_OVERRIDE=3.3 ./build.sh
 # Authors
 - Constantin Masson ([constantinmasson.com](http://constantinmasson.com/))
 - Gaetan ([Ashijo](https://github.com/Ashijo))
-- Acker Edgar ( bonjour )
+- Acker Edgar 
