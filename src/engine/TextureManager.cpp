@@ -3,7 +3,7 @@
 
 #include "utils/log.h"
 
-#include <stb_image.h>
+#include <stb/stb_image.h>
 #include <utility> // std::pair
 
 namespace ice {

@@ -24,12 +24,14 @@ endif()
 # ------------------------------------------------------------------------------
 # Executable
 # ------------------------------------------------------------------------------
+file(GLOB_RECURSE depFilesCPP "${CMAKE_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE depFilesC "${CMAKE_SOURCE_DIR}/extern/*.c")
+file(GLOB_RECURSE srcFiles "${CMAKE_SOURCE_DIR}/extern/*.cpp")
 
-file(GLOB_RECURSE srcFilesCPP "${CMAKE_SOURCE_DIR}/src/*.cpp")
-file(GLOB_RECURSE srcFilesC "${CMAKE_SOURCE_DIR}/src/*.c")
+include_directories("${CMAKE_SOURCE_DIR}/include/")
+include_directories("${CMAKE_SOURCE_DIR}/extern/")
 
-include_directories("${CMAKE_SOURCE_DIR}/include")
-add_executable(ice-engine ${srcFilesCPP} ${srcFilesC})
+add_executable(ice-engine ${srcFiles} ${depFilesC} ${depFilesCPP})
 target_link_libraries(ice-engine
     "dl"
     "glfw"
