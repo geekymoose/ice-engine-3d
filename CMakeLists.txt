@@ -22,19 +22,34 @@ endif()
 
 
 # ------------------------------------------------------------------------------
+# GLFW dependency
+# ------------------------------------------------------------------------------
+include(ExternalProject)
+ExternalProject_Add(dep_glfw3
+    SOURCE_DIR          "${CMAKE_SOURCE_DIR}/extern/glfw3/"
+    BINARY_DIR          "${CMAKE_BINARY_DIR}/glfw3-build/"
+    INSTALL_COMMAND     ""
+    CMAKE_ARGS          "-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}"
+)
+ExternalProject_Get_Property(dep_glfw3 BINARY_DIR)
+add_library(libglfw3 STATIC IMPORTED)
+set_property(TARGET libglfw3 PROPERTY IMPORTED_LOCATION "${BINARY_DIR}/src/libglfw3.a")
+include_directories("${CMAKE_SOURCE_DIR}/extern/glfw3/include/")
+
+
+# ------------------------------------------------------------------------------
 # Executable
 # ------------------------------------------------------------------------------
-file(GLOB_RECURSE depFilesCPP "${CMAKE_SOURCE_DIR}/src/*.cpp")
-file(GLOB_RECURSE depFilesC "${CMAKE_SOURCE_DIR}/extern/*.c")
-file(GLOB_RECURSE srcFiles "${CMAKE_SOURCE_DIR}/extern/*.cpp")
+file(GLOB_RECURSE srcFiles "${CMAKE_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE depGLAD "${CMAKE_SOURCE_DIR}/extern/glad/glad.c")
 
 include_directories("${CMAKE_SOURCE_DIR}/include/")
 include_directories("${CMAKE_SOURCE_DIR}/extern/")
 
-add_executable(ice-engine ${srcFiles} ${depFilesC} ${depFilesCPP})
+add_executable(ice-engine ${depGLAD} ${srcFiles})
 target_link_libraries(ice-engine
+    "libglfw3"
     "dl"
-    "glfw"
     "GL"
     "X11"
     "pthread"
