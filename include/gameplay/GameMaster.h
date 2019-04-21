@@ -1,11 +1,10 @@
 #pragma once
 
-#include "gameplay/PhysicEngine.h"
-
 
 namespace ice{
 
 class GameField;
+class PhysicEngine;
 
 
 class GameMaster{

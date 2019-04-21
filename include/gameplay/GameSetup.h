@@ -61,6 +61,7 @@ class GameSetup {
             _input.registerInput("left", GLFW_KEY_A);
             _input.registerInput("up", GLFW_KEY_W);
             _input.registerInput("down", GLFW_KEY_S);
+            _input.registerInput("stop", GLFW_KEY_ESCAPE);
         }
 };
 

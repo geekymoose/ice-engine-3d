@@ -47,6 +47,7 @@ After a while, you may be able to cook some bacon on your computer, but we didn'
 - The walls push you away
 - The cubes under your position fall
 - There is literally nothing more to do (it's only a demo)
+- Press `ESCAPE` to leave the demo
 
 
 # Dependencies

@@ -2,7 +2,10 @@
 
 #include "gameplay/GameField.h"
 #include "gameplay/GameBall.h"
+#include "gameplay/PhysicEngine.h"
 #include "engine/Game.h"
+#include "engine/InputManager.h"
+#include "engine/WindowGLFW.h"
 
 
 namespace ice {
@@ -23,6 +26,10 @@ void GameMaster::start() {
 
 void GameMaster::fixedUpdate() {
     _physicEngine->fixedUpdate();
+    InputManager& input = InputManager::getInstance();
+    if(input.isKeyDown("stop")) {
+        WindowGLFW::getInstance().close();
+    }
 }
 
 void GameMaster::end() {
