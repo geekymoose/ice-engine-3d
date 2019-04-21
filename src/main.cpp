@@ -7,9 +7,8 @@
 int main(int argc, char** argv) {
     LOG << "--- Start Main ---\n";
 
-    // Create the window
     ice::Game& game = ice::Game::getInstance();
-    game.run();
+    game.run(); // Leeet's gooo
 
     LOG << "--- Stop Main ---\n";
     return 0;

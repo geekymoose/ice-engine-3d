@@ -4,6 +4,7 @@
 
 #include <cstddef>
 
+
 namespace ice {
 
 
@@ -62,7 +63,7 @@ void Mesh::draw(ShaderProgram& shaderProgram) {
 
     glBindVertexArray(_VAO);
 
-    // Note: since using EBO, size should actually be smaller that this: todo
+    // TODO: since using EBO, size should actually be smaller than this.
     glDrawElements(GL_TRIANGLES, _indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }

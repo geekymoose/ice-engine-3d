@@ -2,13 +2,14 @@
 
 #include "engine/GameObject.h"
 
+
 namespace ice {
 
 class Mesh;
 
 
 /**
- * The famouse and beautiful GameBall, moving arround the field.
+ * The famous and beautiful GameBall, moving around the field.
  * Soo much emotions.
  */
 class GameBall : public GameObject {
@@ -37,15 +38,19 @@ class GameBall : public GameObject {
         glm::vec3 getTarget(){
             return target;
         }
+
         void setTarget(glm::vec3 newTarget){
             target = newTarget;
         }
+
         glm::vec3 getPos(){
             return position;
         }
+
         float getVelocity(){
             return velocity;
         }
+
         void setVelocity(float v){
             velocity = v;
         }
@@ -53,3 +58,5 @@ class GameBall : public GameObject {
 
 
 } // End namespace
+
+

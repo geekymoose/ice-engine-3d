@@ -3,6 +3,7 @@
 #include "utils/log.h"
 #include "utils/constants.h"
 
+
 namespace ice {
 
 
@@ -17,7 +18,7 @@ bool WindowGLFW::startup() {
     }
     LOG << "GLFW successfully started\n";
 
-    // Create the window
+    // Creates the window
     _window = glfwCreateWindow(ICE_WINDOW_WIDTH,
                                ICE_WINDOW_HEIGHT,
                                ICE_WINDOW_TITLE,
@@ -68,4 +69,7 @@ void WindowGLFW::resizeWindowCallback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+
 } // End namespace
+
+

@@ -1,32 +1,36 @@
 #include "gameplay/GameMaster.h"
+
 #include "gameplay/GameField.h"
+#include "gameplay/GameBall.h"
 #include "engine/Game.h"
 
-namespace ice{
+
+namespace ice {
 
 
-void GameMaster::start(){
+void GameMaster::start() {
+    _field = new GameField();
+    _field->initLevel(1);
 
-    field = new GameField();
-    field->initLevel(1);
+    GameBall * gameBall = new GameBall();
 
+    Game::getInstance().registerGameObject(gameBall); // Game will call "delete gameBall"
 
-    gameBall = new GameBall();
-
-    Game::getInstance().registerGameObject(gameBall);
-
-    physicEngine = new PhysicEngine();
-    physicEngine->registerGameBall(gameBall);
-    physicEngine->registerGameField(field);
+    _physicEngine = new PhysicEngine();
+    _physicEngine->registerGameBall(gameBall);
+    _physicEngine->registerGameField(_field);
 }
 
-void GameMaster::fixedUpdate(){
-    physicEngine->fixedUpdate();
+void GameMaster::fixedUpdate() {
+    _physicEngine->fixedUpdate();
 }
 
-void GameMaster::end(){
-    delete field;
+void GameMaster::end() {
+    delete _field;
+    delete _physicEngine;
 }
 
 
-}
+} // End namespace
+
+

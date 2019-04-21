@@ -1,13 +1,13 @@
 #pragma once
 
 #include "GameData.h"
-
 #include "utils/log.h"
 #include "engine/MeshManager.h"
 #include "engine/TextureManager.h"
 
 #include <vector>
 #include <GLFW/glfw3.h> // Kind of ugly, but to register gameplay keys
+
 
 namespace ice {
 
@@ -20,18 +20,18 @@ class GameSetup {
     public:
         static void loadGameData() {
             LOG << "DATA: load game data (Mesh...)\n";
-            // Little bit hard coded (Little bit)
+            // A little bit hard coded (Just a little bit)
 
-            // tmp variables
+            // TMP variables
             TextureManager& texture = TextureManager::getInstance();
             MeshManager& mesh       = MeshManager::getInstance();
 
-            // Load all textures
+            // Loads all textures
             texture.createTexture("trollface", "./resources/textures/trollface.png");
             texture.createTexture("rune-diffuse", "./resources/textures/rune-diffuse.png");
             texture.createTexture("rune-specular", "./resources/textures/rune-specular.png");
 
-            // Load all mesh
+            // Loads all mesh
             std::vector<Texture> textures1 = {
                 texture.getTexture("rune-diffuse"),
                 texture.getTexture("rune-specular")

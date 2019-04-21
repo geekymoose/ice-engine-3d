@@ -21,3 +21,5 @@ class Singleton : virtual private Uncopyable<Singleton<T>> {
             return m;
         }
 };
+
+

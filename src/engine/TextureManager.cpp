@@ -1,11 +1,12 @@
 #include "engine/TextureManager.h"
-#include "engine/ShaderProgram.h"
 
+#include "engine/ShaderProgram.h"
 #include "utils/log.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
 #include <utility> // std::pair
+
 
 namespace ice {
 
@@ -69,5 +70,6 @@ Texture& TextureManager::getTexture(const char* name) {
 }
 
 
-
 } // End namespace
+
+

@@ -4,12 +4,13 @@
 
 #include <glm/glm.hpp>
 
+
 namespace ice {
 
 
 /**
  * The GameObject interface.
- * Any in the game is a GameObject.
+ * Any entity in the game is a GameObject.
  *
  * \date    May 2018
  * \author  Constantin Masson
@@ -36,7 +37,7 @@ class GameObject {
         virtual void update() = 0;
 
         /**
-         * Called at each fixed frame (Usually for physics).
+         * Called at each fixed frame (usually for physics).
          * (Use fixed deltaTime).
          */
         virtual void fixedUpdate() = 0;
@@ -49,8 +50,8 @@ class GameObject {
     public:
 
         /**
-         * Tag object to be destroyed.
-         * Object is tagged and is removed (Memory free etc) at next frame.
+         * Tags this object to be destroyed.
+         * Object is tagged and is removed (memory free etc) at next frame.
          */
         void destroy() {
             _toDestroy = true;

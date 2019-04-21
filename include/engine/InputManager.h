@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <string>
 
+
 namespace ice {
 
 
@@ -24,45 +25,47 @@ class InputManager : private Singleton<InputManager> {
     public:
 
         /**
-         * Startup the Ice Input Manager.
+         * Startups the Ice Input Manager.
          */
         void startup();
 
         /**
-         * Shutdown the Ice Input Manager.
+         * Shutdowns the Ice Input Manager.
          */
         void shutdown();
 
         /**
-         * Update inputs
+         * Updates inputs
          */
         void update();
 
         /**
-         * Register a key to the input manager.
-         * Do nothing if already exists.
+         * Registers a key in the input manager.
+         * Does nothing if already exists.
          *
          * \param keyName   Name of the key to add.
-         * \param scancode  Input code (ex: GLFW scancode)
+         * \param scancode  Input code (e.g., GLFW scancode)
          */
         void registerInput(const char* keyName, const int scancode);
 
         /**
-         * Check whether key is pressed.
+         * Check whether the given key is pressed.
          * Undefined behavior if keyName doesn't exists.
          *
-         * \param The input name
+         * \param The input name.
          */
         bool isKeyDown(const char* keyName) const;
 
         /**
-         * Check whether key is released.
+         * Check whether the given key is released.
          * Undefined behavior if keyName doesn't exists.
          *
-         * \param The input name
+         * \param The input name.
          */
         bool isKeyRelease(const char* keyName) const;
 };
 
 
 }
+
+

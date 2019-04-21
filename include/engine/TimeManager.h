@@ -5,11 +5,12 @@
 
 #include <chrono>
 
+
 namespace ice {
 
 
 /**
- * The famouse and beautiful TimeManager.
+ * The famous and beautiful TimeManager.
  * Deals with game time, FPS.
  *
  * \date    May 2018
@@ -49,12 +50,9 @@ class TimeManager : private Singleton<TimeManager> {
         void startup();
         void shutdown();
 
-
-    public:
-
         /**
          * To call at the beginning of the main loop.
-         * Update all time data relative to the beginning of the frame.
+         * Updates all time data relative to the beginning of the frame.
          */
         void update();
 
@@ -66,7 +64,7 @@ class TimeManager : private Singleton<TimeManager> {
     public:
 
         /**
-         * Check whether the current frame also has a fixed update to do.
+         * Checks whether the current frame also has a fixed update to do.
          * Means a physic update is required.
          */
         bool hasFixedUpdate() const {
@@ -85,6 +83,7 @@ class TimeManager : private Singleton<TimeManager> {
             return _fixedDeltaTime;
         }
 };
+
 
 } // End namespace
 

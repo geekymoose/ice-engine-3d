@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 
+
 namespace ice {
 
 class ShaderProgram;
@@ -13,8 +14,7 @@ class ShaderProgram;
 
 /**
  * Structure of a vertex data.
- *
- * position, normal, textureUV
+ * Vertex3P3N2UV (position, normal, textureUV)
  */
 struct Vertex {
     glm::vec3   _position;
@@ -24,7 +24,7 @@ struct Vertex {
 
 
 /**
- * The famouse Mesh class!
+ * The famous Mesh class!
  *
  * \date    May 2018
  * \author  Constantin Masson
@@ -50,14 +50,14 @@ class Mesh {
     private:
 
         /**
-         * Load all GPU data to render this mesh.
+         * Loads all the GPU data required to render this mesh.
          */
-        void setup(); // interan call
+        void setup(); // Internal call
 
     public:
 
         /**
-         * Draw Mesh using given ShaderProgram.
+         * Draws this mesh using the given ShaderProgram.
          */
         void draw(ShaderProgram& shaderProgram);
 };

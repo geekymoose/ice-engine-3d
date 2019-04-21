@@ -2,10 +2,12 @@
 
 #include "utils/log.h"
 
+
 namespace ice {
 
 
 RenderEngine::RenderEngine() : _window(WindowGLFW::getInstance()) {
+    // Best component ever!
 }
 
 void RenderEngine::startup() {
@@ -18,3 +20,5 @@ void RenderEngine::shutdown() {
 
 
 } // End namespace
+
+

@@ -34,10 +34,10 @@ class TextureManager : private Singleton<TextureManager> {
 
     public:
         /**
-         * Create new Texture and register it in TextureManager.
+         * Creates a new Texture and registers it in the TextureManager.
          *
-         * If Texture is already present (Name already exists in TextureManager),
-         * do nothing and return false.
+         * If the Texture is already present (name already exists in the TextureManager),
+         * does nothing and returns false.
          *
          * \param name Texture's name
          * \return True if added, otherwise, return false.
@@ -45,8 +45,8 @@ class TextureManager : private Singleton<TextureManager> {
         bool createTexture(const char* name, const char* path);
 
         /**
-         * Get texture by name.
-         * For now, unvalid name return an execption.
+         * Gets a texture by name.
+         * For now, invalid name returns an exception.
          *
          * \param name The Texture's name as registered in the TextureManager.
          */
@@ -55,3 +55,5 @@ class TextureManager : private Singleton<TextureManager> {
 
 
 } // End namespace
+
+

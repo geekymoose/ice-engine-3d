@@ -2,6 +2,7 @@
 
 #include "utils/log.h"
 
+
 namespace ice {
 
 
@@ -14,7 +15,6 @@ void TimeManager::startup() {
 void TimeManager::shutdown() {
     LOG << "Shutdown TimeManager\n";
 }
-
 
 void TimeManager::update() {
     TimePoint previous = _currentStartFrame;
@@ -35,3 +35,5 @@ void TimeManager::update() {
 
 
 } // End namespace
+
+

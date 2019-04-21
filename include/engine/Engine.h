@@ -7,8 +7,8 @@
 #include "InputManager.h"
 #include "MeshManager.h"
 #include "TextureManager.h"
-
 #include "utils/log.h"
+
 
 namespace ice {
 
@@ -45,26 +45,26 @@ class Engine {
     public:
 
         /**
-         * Create new Engine for a game.
+         * Creates a new Engine for the given game.
          */
         Engine(Game& game);
 
         /**
-         * Startup ice engine.
-         * Must be called first.
+         * Startups ice engine.
+         * This must be called first.
          */
         void startup();
 
         /**
-         * Shutdown ice engine.
+         * Shutdowns ice engine.
          * To call at the end.
          * Release all used resources.
          */
         void shutdown();
 
         /**
-         * Run the engine.
-         * This actually start the main loop and call update and fixedUpdate
+         * Runs the engine.
+         * This actually starts the main loop and calls update and fixedUpdate
          * of the game.
          */
         void run();

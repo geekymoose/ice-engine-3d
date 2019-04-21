@@ -16,15 +16,12 @@ class GameField {
         int currentLevel;
 
     public:
-
         GameField();
         void initLevel(int level);
 
-        // return the state of the block at xy
+        // Returns the state of the block at xy
         GameBlock* getGB(int x, int y);
 
-
- 
     private:
         void cleanLevel();
         static int parse(char const s);

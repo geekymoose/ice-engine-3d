@@ -1,11 +1,13 @@
 #pragma once 
 
 #include <glm/glm.hpp>
-
 #include <cmath>
 
-namespace ice{
-class mathHelper{
+
+namespace ice {
+
+
+class mathHelper {
     public:
         static float clamp01(float toClamp){
             float backer = 0;
@@ -17,7 +19,7 @@ class mathHelper{
 
             return backer;
         }
-    
+
         static glm::vec3 lerp(glm::vec3 origin, glm::vec3 target, float alpha){
             glm::vec3 backer(0,0,0);
 
@@ -27,6 +29,9 @@ class mathHelper{
 
             return backer;
         };
-      
 };
-}
+
+
+} // End namespace
+
+

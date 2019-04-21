@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace ice {
 
 
@@ -25,5 +26,6 @@ struct PointLight {
 };
 
 
-
 } // End namespace
+
+

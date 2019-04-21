@@ -1,17 +1,15 @@
 #include "gameplay/GameEntry.h"
+
 #include "utils/log.h"
 #include "gameplay/GameSetup.h"
 
-
 /*
- *
- * Each of the function of Game entry must be called by Game
- * And NOBOBY ELSE
- * bitches
- *
+ * Each of the functions of GameEntry must be called by Game
+ * and nobody else bitches.
  */
 
-namespace ice{
+
+namespace ice {
 
 
 void GameEntry::start(){
@@ -32,6 +30,7 @@ void GameEntry::fixedUpdate(){
     _gm->fixedUpdate();
 }
 
-}
+
+} // End namespace
 
 

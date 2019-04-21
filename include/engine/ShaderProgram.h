@@ -1,19 +1,19 @@
 #pragma once
 
-#include "glad/glad.h"
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
 #include <glm/glm.hpp>
-
 #include <string>
+
 
 namespace ice {
 
 
 /**
- * Manage a shader program.
+ * Class for a shader program to use in OpenGL.
+ * Linked with a vertex shader and a fragment shader.
  *
- * Inspired from learnopengl (Shader.h)
+ * Inspired from learnopengl.com (Shader.h)
  */
 class ShaderProgram {
     public:
@@ -22,15 +22,15 @@ class ShaderProgram {
     public:
 
         /**
-         * Create a shader from its source path.
+         * Creates a shader with the given vertex and fragment shaders.
          *
-         * \param vertexPath    Path to vertex shader
-         * \param fragPath      Path to fragment shader
+         * \param vertexPath    Path to the vertex shader
+         * \param fragPath      Path to the fragment shader
          */
         ShaderProgram(const GLchar* vertexPath, const GLchar* fragPath);
 
         /**
-         * Use / Activate the shader.
+         * Uses (i.e., activates) this shader.
          */
         void use();
 

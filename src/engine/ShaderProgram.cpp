@@ -11,7 +11,7 @@ namespace ice {
 
 
 ShaderProgram::ShaderProgram(const GLchar* vertexPath, const GLchar* fragmentPath) {
-    // Retrieve the vertex/fragment source code from filePath
+    // Retrieves the vertex/fragment source code from filePath
     std::string vertexCode;
     std::string fragmentCode;
     std::ifstream vShaderFile;

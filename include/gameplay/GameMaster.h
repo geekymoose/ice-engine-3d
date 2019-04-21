@@ -1,7 +1,6 @@
 #pragma once
 
 #include "gameplay/PhysicEngine.h"
-#include "GameBall.h"
 
 
 namespace ice{
@@ -11,16 +10,16 @@ class GameField;
 
 class GameMaster{
     private:
-        GameBall*   gameBall;
-        GameField*  field;
+        GameField*      _field;
+        PhysicEngine*   _physicEngine;
 
-        PhysicEngine* physicEngine;
-
-
-    public :
+    public:
         void start();
         void fixedUpdate();
         void end();
 };
 
-}
+
+} // End namespace
+
+

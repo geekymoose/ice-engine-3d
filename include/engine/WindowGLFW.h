@@ -2,7 +2,7 @@
 
 #include "utils/Singleton.h"
 
-#include "glad/glad.h" // To place before <GLFW/glfw3.h>
+#include <glad/glad.h> // To place before <GLFW/glfw3.h>
 #include <GLFW/glfw3.h>
 
 namespace ice {
@@ -10,7 +10,7 @@ namespace ice {
 
 /**
  * The main window where to draw.
- * There is only one Window (Accessible from singleton).
+ * There is only one window (accessible from the singleton).
  *
  * \date    May 2018
  * \author  Constantin
@@ -23,7 +23,8 @@ class WindowGLFW : private Singleton<WindowGLFW> {
     public:
         using Singleton<WindowGLFW>::getInstance;
 
-    public: // It's not the best way, but other (ex:InputManager) access window)
+    public:
+        // Yes! It's not the best way, but other (e.g., InputManager) access window.
         GLFWwindow* _window;
 
 
@@ -34,22 +35,23 @@ class WindowGLFW : private Singleton<WindowGLFW> {
     public:
 
         /**
-         * Startup Window.
-         * Must be the first to be called in the engine (Since also initialize GLFW).
+         * Startups window.
+         * Must be the very first to be called in the engine
+         * (since it also initializes GLFW).
          *
          * \return True if successfully started up, otherwise, false.
          */
         bool startup();
 
         /**
-         * End Window.
-         * Last to call (Since also stop GLFW).
+         * Ends window.
+         * Last to call (since it also stops GLFW).
          */
         void shutdown();
 
         /**
-         * Update the window buffers.
-         * Usually to call at the end.
+         * Updates the window buffers.
+         * Usually to call at the end of the game loop.
          */
         void update();
 
@@ -61,19 +63,20 @@ class WindowGLFW : private Singleton<WindowGLFW> {
     public:
 
         /**
-         * Close the window.
+         * Closes the window.
          */
         void close();
 
         /**
-         * Check whether window is closed.
+         * Checks whether the window is closed.
          *
          * \return True if closed, otherwise, return false.
          */
         bool isClosed() const;
 
         /**
-         * Clear the window content
+         * Clears the window content.
+         * Usually to call before the update in the main game loop.
          */
         void clear();
 

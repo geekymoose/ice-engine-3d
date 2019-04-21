@@ -9,34 +9,29 @@
 
 #include <cmath>
 
-/*
- * Dev note:
- * Home made physic engine
- * like your mom's pies
- * it's better when it's home made 
- * with LOVE
- * 
- * it's also a stateMachine
- * like a banana chocolate pies
- * better when you mix
- */
-
 namespace ice {
 
+
+/*
+ * Home made physic engine.
+ * Like your mom's pies, it's better when it's home made with LOVE.
+ * It's also a state machine, like a banana chocolate pies: better when you mix.
+ */
 class PhysicEngine{
     private:
         GameBall*   _ball;
         GameField*  _field;
 
+    private:
         void fall();
-
 
     public:
         void fixedUpdate();
-
         void registerGameBall(GameBall* ball);
         void registerGameField(GameField* field);
-
 };
-}
+
+
+} // End namespace
+
 

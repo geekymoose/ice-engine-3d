@@ -10,7 +10,7 @@ namespace ice {
 
 
 /**
- * Manager for all loaded meshes.
+ * Manager for all the loaded meshes.
  *
  * \date    May 2018
  * \author  Constantin Masson
@@ -33,13 +33,13 @@ class MeshManager : Singleton<MeshManager> {
 
     public:
         /**
-         * Create new mesh and register it in MeshManager.
+         * Creates a new mesh and register it in this MeshManager.
          *
-         * If mesh is already present (Name already exists in MeshManager),
-         * do nothing and return false.
+         * If mesh is already present (name already exists in MeshManager),
+         * does nothing and returns false.
          *
-         * Dev note: everything is passed by copy.
-         * We may thing of better ways. (But GameJam Style guys!)
+         * Warning: everything is passed by copy.
+         * We may thing of better ways (but GameJam style guys)!
          *
          * \param name Mesh name
          * \param vertices
@@ -54,8 +54,8 @@ class MeshManager : Singleton<MeshManager> {
 
 
         /**
-         * Get mesh by name.
-         * For now, unvalid name return an execption.
+         * Gets mesh by name.
+         * For now, invalid name returns an exception.
          *
          * \param name The Mesh name as registered in the MeshManager.
          */

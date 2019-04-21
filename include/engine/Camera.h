@@ -1,28 +1,29 @@
 #pragma once
 
-#include "utils/constants.h"
 #include "WindowGLFW.h"
+#include "utils/log.h"
+#include "utils/constants.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
-#include "utils/log.h"
 
 
 namespace ice {
 
 
 /**
- * Camera component.
+ * The camera component.
  *
  * \date    May 2018
  * \author  Constantin Masson
  */
 class Camera {
+
     /*
      * TODO: DEV NOTE
-     * Camera data are kind of hardcoded, these should be placed in gameplay
-     * space (Maybe camera gameplay that extends this).
+     * Camera data are kind of hardcoded, these should be placed in the gameplay
+     * space instead (e.g., maybe a camera in gameplay that extends this).
+     * This is gamejam style and we like it.
      */
 
     private:
@@ -40,17 +41,18 @@ class Camera {
     public:
 
         /**
-         * To call once a frame.
-         * Update all camera internal data.
+         * To call once per frame.
+         * Updates the camera internal data.
          */
         void updateViewData() {
             _camDir     = glm::normalize(_camTarget - _camPos);
             _camRight   = glm::normalize(glm::cross(_camDir, _worldUp));
+
             // TODO: HARD CODED
-            // I have some issue, the camera is 45 degree rotated..
+            // I have some issue with the camera which is looking down.
             // So far, I didn't figured out a solution so I hard coded _camRight
             // because, for this very game, it's ok, but it is, in a perfect
-            // world, not ok! :p
+            // world, not ok! Ugly!
             _camRight   = glm::vec3(1.0f, 0.0f, 0.0f);
             _camUp      = glm::normalize(glm::cross(_camRight, _camDir));
         }

@@ -18,3 +18,4 @@ class Uncopyable {
         Uncopyable<T>& operator=(Uncopyable<T> const& other) = delete;
 };
 
+

@@ -4,10 +4,10 @@
 #include "engine/InputManager.h"
 #include "engine/ShaderProgram.h"
 #include "engine/MeshManager.h"
-
 #include "utils/log.h"
 
 #include <cassert>
+
 
 namespace ice {
 
@@ -45,16 +45,18 @@ void Game::run() {
 }
 
 void Game::update() {
-    // Call update of all registered game objects
+    // Calls update of all registered game objects
 
     /*
-     * Dev note:
-     * Maybe we could for the foreach loop once, and if marked to destroye,
-     * remove from le vector. But I'm not sure this 'live' removing
-     * may break the iterator or something. We don't have time for now to check
-     * so this solution, though ugly, will do the job for now.
-     * (GameJam style buddies, it's 4:00Pm and we have to give the game in
-     * 24h!)
+     * TODO: Dev note
+     *
+     *
+     * Maybe we could do only one foreach loop, and remove the deleted objects
+     * from the vector (i.e., marked "to destroy").
+     * I'm not sure if this 'live' removing would break the iterator or something.
+     * We don't have enough time to check this now, so this solution, though ugly,
+     * will do the job for now.
+     * (GameJam style buddies, it's 4:00Pm and we have to give the game in 24h!)
      */
     for(GameObject* elt : _gameObjects) {
         assert(elt != nullptr);
@@ -69,7 +71,7 @@ void Game::update() {
 }
 
 void Game::fixedUpdate() {
-    // Call fixedupdate of all registered game objects.
+    // Calls fixedupdate of all registered game objects.
     for(GameObject* elt : _gameObjects) {
         assert(elt != nullptr);
         elt->fixedUpdate();
@@ -78,8 +80,6 @@ void Game::fixedUpdate() {
 }
 
 void Game::drawAll() {
-    // TODO: Switch in Render Engine.
-
     _cctv.updateViewData();
 
     glm::mat4 view          = _cctv.getViewMatrix();
@@ -94,7 +94,7 @@ void Game::drawAll() {
     shader.setFloat("shininess", 32.0f);
 
     for(GameObject* elt : _gameObjects) {
-        assert(elt != nullptr); // We love asserts (Its actually useless here)
+        assert(elt != nullptr); // We love asserts (its actually useless here)
 
         elt->draw(shader);
     }

@@ -2,31 +2,30 @@
 
 #include "GameObject.h"
 #include "Camera.h"
-
 #include "utils/constants.h"
 #include "utils/Singleton.h"
-
-#include "gameplay/GameEntry.h"
+#include "gameplay/GameEntry.h" // Gameplay in engine. Yes! Gamejam is king!
 
 #include <vector>
+
 
 namespace ice {
 
 
 /*
- * This is the predefined number of gameobject initially in the game.
- * This is not the number of game object or the max value etc.
- * This is only used for little 'optimization' to 'reserve' a better initial
- * size for the vector of game objects in the game.
+ * This is the predefined number of GameObjects initially in the game.
+ * This is not the actual number of game objects or the max value etc, but
+ * only used as a little 'optimization' to 'reserve' a better initial
+ * size for the vector of game objects.
  */
 #define ICE_INIT_GAMEOBJECT_POOL_SIZE   210
 
 
 /**
  * The main Game class.
- * Currently mix the engine, main loop and game data.
+ * Currently mixes the engine, main loop and game data.
+ * It's like your milkshake, but in code.
  * (GameJam stuff buddies)
- *
  *
  * \date    May 2018
  * \author  Constantin
@@ -53,7 +52,7 @@ class Game : private Singleton<Game> {
 
     public:
         /**
-         * Start the game! Yoooloooo let's gooo!
+         * Starts the game! Yoooloooo let's gooo!
          */
         void run();
 
@@ -70,8 +69,8 @@ class Game : private Singleton<Game> {
         void fixedUpdate();
 
         /**
-         * Register a new gameobject in the game.
-         * Object must have been created on the heap (new) because, when 
+         * Registers a new gameobject in the game.
+         * The object must have been created on the heap (new) since, when
          * destroyed, free(o) is called.
          */
         void registerGameObject(GameObject* o);
@@ -95,3 +94,5 @@ class Game : private Singleton<Game> {
 
 
 } // End namespace
+
+

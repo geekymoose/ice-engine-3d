@@ -1,5 +1,7 @@
 #pragma once
+
 #include "gameplay/GameMaster.h"
+
 
 namespace ice {
 
@@ -16,4 +18,6 @@ class GameEntry {
 };
 
 
-}
+} // End namespace
+
+

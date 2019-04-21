@@ -1,4 +1,5 @@
 #include "gameplay/GameField.h"
+
 #include "utils/constants.h"
 #include "utils/log.h"
 #include "engine/Game.h"
@@ -8,7 +9,9 @@
 #include <cassert>
 #include <string>
 
+
 namespace ice {
+
 
 GameField::GameField(){
    currentLevel = 1;
@@ -41,17 +44,14 @@ void GameField::initLevel(const int level){
     }
 }
 
-
-
 GameBlock* GameField::getGB(int x, int y){
     return blockList[x][y];
 }
 
 /*
- *  Parse a char to int
- *  return -1 for error
+ *  Parses a char to int
+ *  Returns -1 for error
  */
-
 int GameField::parse(char const c){
     int backer = -1;
 
@@ -93,17 +93,18 @@ int GameField::parse(char const c){
     return backer;
 }
 
-
 /*
- * Clean the field by set all status to 2 (wall)
+ * Cleans the field by set all status to 2 (wall).
  */
-
 void GameField::cleanLevel(){
     for (int i = 0; i<GAME_FIELD_SIZE_X; ++i){
         for(int j = 0; j<GAME_FIELD_SIZE_Y; ++j){
-            
             blockList[i][j]->setStatus(2);
         }
     }
 }
-}
+
+
+} // End namespace
+
+

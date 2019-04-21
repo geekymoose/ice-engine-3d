@@ -1,5 +1,6 @@
 #include "engine/Engine.h"
 
+
 namespace ice {
 
 
@@ -14,7 +15,7 @@ Engine::Engine(Game& game)
 }
 
 void Engine::startup() {
-    // Startup all subsystems (Order is important)
+    // Startups all subsystems (order is important)
     if(!_isInit) {
         _isInit = true;
         LOG << "Startup ice Engine\n";
@@ -27,7 +28,7 @@ void Engine::startup() {
 }
 
 void Engine::shutdown() {
-    // Shutdown all subsystems (Order is important)
+    // Shutdowns all subsystems (order is important)
     if(_isInit) {
         LOG << "Shutdown ice Engine\n";
         _timeManager.shutdown();

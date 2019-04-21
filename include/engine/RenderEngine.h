@@ -8,11 +8,11 @@ namespace ice {
 
 /**
  * \deprecated
- * Soo awesome, we actually not using it atm. (To delete lated if confirmed)
+ * Soo awesome, we actually don't use it!!
  *
  * The awesome Ice RenderEngine!
  * Tired of Ogre? Unreal is too 'hasbeen' and unity is not OpenSource?
- * This renderer is for you! It is soo small it is almost doing nothing
+ * This renderer is for you! It is soo small it almost does nothing
  * but... Don't tell that.
  *
  * \date    May 2018
@@ -31,11 +31,6 @@ class RenderEngine : private Singleton<RenderEngine> {
     public:
         void startup();
         void shutdown();
-
-        /**
-         * Update the set Window buffer with all new content.
-         * To call once per render frame.
-         */
         void update();
 };
 
